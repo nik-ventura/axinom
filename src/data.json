@@ -1,0 +1,64 @@
+{
+ "name": "Units",
+ "children": [
+  {
+   "name": "Designers Unit",
+   "heat":"blue",
+   "value": 50,
+   "time": "",
+   "children": [
+       {"name": "Sylvester Stallone", "time": "70", "value": 10, "class": "red"},
+       {"name": "Arnold Schwarzenegger", "time": "90", "value": 20, "class": "green"},
+       {"name": "Bruce Willis", "time": "80", "value": 30, "class": "green"},
+       {"name": "Jason Statham", "time": "95", "value": 40, "class": "blue"}
+   ]
+  },
+  {
+   "name": "Front-end Dev",
+    "heat":"red",
+     "value": 50,
+     "time": "",
+   "children": [
+       {"name": "Jet Li", "time": "25", "value": 3, "class": "green"},
+       {"name": "Jackie Chan", "time": "15", "value": 7, "class": "green"},
+       {"name": "Bruce Willis", "time": "40", "value": 7, "class": "blue"},
+       {"name": "Jason Statham", "time": "90", "value": 15, "class": "green"},
+       {"name": "Chuck Norris", "time": "100", "value": 8, "class": "green"},
+       {"name": "Tom Cruise", "time": "100", "value": 5, "class": "green"},
+       {"name": "Jet Low", "time": "90", "value": 10, "class": "green"},
+       {"name": "Tom Henks", "time": "100", "value": 10, "class": "red"},
+       {"name": "Rock", "time": "100", "value": 10, "class": "green"},
+       {"name": "Morgan Freeman", "time": "100", "value": 5, "class": "red"},
+       {"name": "Deni De Vito", "time": "100", "value": 20, "class": "red"}
+
+   ]
+  },
+    {
+        "name": "Testers",
+        "heat":"red",
+        "value": 50,
+        "time": "",
+        "children": [
+         {"name": "Sylvester Stallone", "time": "100", "value": 40, "class": "green"},
+         {"name": "Arnold Schwarzenegger", "time": "100", "value": 50, "class": "blue"},
+         {"name": "Bruce Willis", "time": "70", "value": 10, "class": "blue"}
+        ]
+    }
+     ,
+     {
+         "name": "Marketing",
+         "heat":"blue",
+         "value": 50,
+         "time": "",
+         "children": [
+             {"name": "Bengamin Franklin", "time": "100", "value": 20, "class": "red"},
+
+             {"name": "Sylvester Stallone", "time": "45", "value": 15, "class": "green"},
+             {"name": "Jet Li", "time": "65", "value": 10, "class": "green"},
+             {"name": "Jackie Chan", "time": "15", "value": 10, "class": "green"},
+             {"name": "Bruce Lee", "time": "80", "value": 35, "class": "green"},
+             {"name": "Chuck Norris", "time": "100", "value": 10, "class": "green"}
+         ]
+     }
+ ]
+}

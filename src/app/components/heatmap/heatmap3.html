@@ -1,0 +1,81 @@
+
+<div class="container-fluid">
+  <div class="row heatmap-controls animated fadeInUp">
+    <div class="col-md-3">
+      <h1>Filter by project:</h1>
+      <select chosen multiple id="states" class="top10">
+        <option value="Lufthanza">Lufthanza</option>
+        <option value="Microsoft">Microsoft</option>
+        <option value="ABB">ABB</option>
+        <option value="SkyNews">SkyNews</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <h1>Filter by employee</h1>
+      <select chosen multiple class="top10">
+        <option value="Bred Pitt">Bred Pitt</option>
+        <option value="Bruce Willis">Bruce Willis</option>
+        <option value="Silvestr Stallone">Silvestr Stallone</option>
+      </select>
+    </div>
+    <div class="col-md-1">
+      <a class="btn btn-primary btn-filter" scroll-to="chart">Filter <i class="icon-search"></i></a>
+    </div>
+    <div class="col-md-2">
+      <h1>Heat analysis</h1>
+      <input date-range-picker class="form-control date-picker" type="text" ng-model="date"
+             min="'2014-02-23'" max="'2015-02-25'" placeholder="Pick time range"/>
+    </div>
+    <div class="col-md-3">
+      <div class="heatmap-playback">
+        <div class="heatmap-playback-controls">
+          <a href="" ng-click="playToggle()" >
+            <i class="icon-play" ng-class="{'visible' : !play, 'hidden': play}" scroll-to="chart"></i>
+            <i class="icon-pause" ng-class="{'visible' : play, 'hidden': !play}"></i>
+          </a>
+        </div>
+        <div class="heatmap-playback-timeline">
+          <rzslider rz-slider-floor="0" rz-slider-ceil="dateMax" rz-slider-model="startDate" rz-slider-translate="datesTranslate" class="ng-isolate-scope" role="slider"></rzslider>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row heatmap">
+    <div class="col-md-12">
+      <div class="heatmap-wrap">
+
+        <div class="heatmap-title">
+          <div class="btn-group bottom10" data-toggle="buttons">
+            <label class="btn btn-success active">
+              <input type="radio" name="Unit" id="Unit" autocomplete="off" checked> Unit
+            </label>
+            <label class="btn btn-success">
+              <input type="radio" name="Unit" id="Project" autocomplete="off"> Project
+            </label>
+          </div>
+        </div>
+        <div class="heatmap-parent">
+          <div class="heatmap-parent-title">Front-end Units</div>
+          <div class="heatmap-child green">
+            <div class="t-row">
+              <div class="time-personal t-cell">20%</div>
+            </div>
+            <div class="t-row">
+              <div class="name t-cell">Alexandr Pushnik</div>
+            </div>
+            <div class="t-row">
+              <div class="time-project t-cell">50%</div>
+            </div>
+          </div>
+          <div class="heatmap-child red">
+            <div class="time-personal ">20%</div>
+            <div class="name">Alexandr Pushnik</div>
+            <div class="time-project">50%</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

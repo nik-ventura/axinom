@@ -1,0 +1,7 @@
+{
+    name: '(HTML that is displayed via .innerHTML on the caption)',
+    data: {
+        "$area": (a number, in arbitrary units)
+},
+children: (list of child tree nodes)
+}

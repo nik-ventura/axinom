@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <div class="row heatmap-controls animated fadeInDown">
+    <div class="col-sm-3 bottom10">
+      <h1>Filter by project:</h1>
+      <select chosen multiple id="states" class="top10">
+        <option value="Lufthanza">Lufthanza</option>
+        <option value="Microsoft">Microsoft</option>
+        <option value="ABB">ABB</option>
+        <option value="SkyNews">SkyNews</option>
+      </select>
+    </div>
+    <div class="col-sm-3 col-xs-10 bottom10">
+      <h1>Filter by employee</h1>
+      <select chosen multiple class="top10">
+        <option value="Bred Pitt">Bred Pitt</option>
+        <option value="Bruce Willis">Bruce Willis</option>
+        <option value="Silvestr Stallone">Silvestr Stallone</option>
+      </select>
+    </div>
+    <div class="col-sm-1 col-xs-2">
+      <a class="btn btn-primary btn-filter" scroll-to="chart">Filter <i class="icon-search"></i></a>
+    </div>
+    <div class="col-sm-2">
+      <h1>Heat analysis</h1>
+      <input date-range-picker class="form-control date-picker" type="text" ng-model="date"
+             min="'2015-11-12'" max="'2016-08-25'" placeholder="Pick time range"/>
+    </div>
+    <div class="col-sm-3">
+      <div class="heatmap-playback">
+        <div class="heatmap-playback-controls">
+          <a href="" ng-click="playToggle()" >
+            <i class="icon-play" ng-class="{'visible' : !play, 'hidden': play}" scroll-to="chart"></i>
+            <i class="icon-pause" ng-class="{'visible' : play, 'hidden': !play}"></i>
+          </a>
+        </div>
+        <div class="heatmap-playback-timeline">
+          <rzslider rz-slider-floor="0" rz-slider-ceil="dateMax" rz-slider-model="startDate" rz-slider-translate="datesTranslate" class="ng-isolate-scope" role="slider"></rzslider>
+        </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="row heatmap">
+    <div class="col-md-12">
+      <p id="chart" ng-style="mapSize">
+          <div class="btn-group bottom10" data-toggle="buttons">
+            <label class="btn btn-success active">
+              <input type="radio" name="Unit" id="Unit" autocomplete="off" checked> Unit
+            </label>
+            <label class="btn btn-success">
+              <input type="radio" name="Unit" id="Project" autocomplete="off"> Project
+            </label>
+          </div>
+      </p>
+    </div>
+  </div>
+</div>

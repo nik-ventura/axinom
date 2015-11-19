@@ -1,0 +1,34 @@
+.acme-navbar-text{
+  color: white;
+}
+.navbar {
+  padding: 1em;
+  background: rgba(82,82,82,0.88);
+}
+.navbar-nav  {
+  margin-top: 0.7em;
+  li {
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+    a {
+      border-radius: $border-radius-large;
+      border: 2px solid #fff;
+      padding: 1em 1em;
+      text-transform: uppercase;
+      padding: 0.7em 1.5em;
+      color: #fff;
+      letter-spacing: 0.1em;
+      font-weight: $font-bold;
+      &:hover, &:active, &:focus {
+        background: transparent;
+      }
+    }
+    &.active {
+      a {
+        border-color: $brand-primary;
+        background: $brand-primary;
+      }
+    }
+  }
+
+}

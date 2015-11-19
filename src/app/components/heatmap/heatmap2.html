@@ -1,0 +1,286 @@
+<div class="container-fluid">
+  <div class="row heatmap-controls animated fadeInUp">
+    <div class="col-md-3">
+      <h1>Filter in</h1>
+      <div class="btn-group bottom10">
+        <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Left'" uncheckable>Unit</label>
+        <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Right'" uncheckable>Project</label>
+      </div>
+      <select chosen multiple id="states" class="top10">
+        <option value="Lufthanza">Lufthanza</option>
+        <option value="Microsoft">Microsoft</option>
+        <option value="ABB">ABB</option>
+        <option value="SkyNews">SkyNews</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <h1>Filter by</h1>
+      <div class="btn-group bottom10">
+        <a class="btn btn-success full-w">Employee</a>
+      </div>
+      <select chosen multiple class="top10">
+        <option value="Bred Pitt">Bred Pitt</option>
+        <option value="Bruce Willis">Bruce Willis</option>
+        <option value="Silvestr Stallone">Silvestr Stallone</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <h1>Time range</h1>
+      <input date-range-picker class="form-control date-picker" type="text" ng-model="date"
+             min="'2014-02-23'" max="'2015-02-25'" />
+      <rzslider rz-slider-model="priceSlider6" rz-slider-floor="0" rz-slider-ceil="10" rz-slider-always-show-bar="true" rz-slider-show-ticks-value="true" class="ng-isolate-scope" role="slider"></rzslider>
+    </div>
+  </div>
+
+  <div class="row heat-log-item">
+    <div class="col-md-12">
+      <div id="center-container">
+        <div id="infovis" ng-style="mapSize"></div>
+      </div>
+
+      <div id="right-container">
+
+        <div id="inner-details"></div>
+
+      </div>
+
+      <div id="log"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+var json = {
+  "children": [
+    {
+      "children": [
+        {
+          "children": [],
+          "data": {
+            "playcount": "10",
+            "$color": "#00adee",
+            "image": "http://userserve-ak.last.fm/serve/300x300/11403219.jpg",
+            "$area": 10
+          },
+          "id": "Jason Statham",
+          "name": "Jason Statham"
+        },
+        {
+          "children": [],
+          "data": {
+            "playcount": "10",
+            "$color": "#f16c54",
+            "image": "http://userserve-ak.last.fm/serve/300x300/11393921.jpg",
+            "$area": 30
+          },
+          "id": "Arnold Schwarzenegger",
+          "name": "Arnold Schwarzenegger"
+        },
+        {
+          "children": [],
+          "data": {
+            "playcount": "20",
+            "$color": "#906E32",
+            "image": "http://userserve-ak.last.fm/serve/300x300/11393921.jpg",
+            "$area": 20
+          },
+          "id": "Sylvester Stallone",
+          "name": "Sylvester Stallone"
+        },
+        {
+          "children": [],
+          "data": {
+            "playcount": "15",
+            "$color": "#906E32",
+            "image": "http://userserve-ak.last.fm/serve/300x300/11393921.jpg",
+            "$area": 15
+          },
+          "id": "Bruce Willis",
+          "name": "Bruce Willis"
+        },
+        {
+          "children": [],
+          "data": {
+            "playcount": "25",
+            "$color": "#906E32",
+            "image": "http://userserve-ak.last.fm/serve/300x300/11393921.jpg",
+            "$area": 25
+          },
+          "id": "Bruce Lee",
+          "name": "Bruce Lee"
+        }
+
+      ],
+      "data": {
+        "playcount": 50,
+        "$area": 50
+      },
+      "id": "Front-end Devs",
+      "name": "Front-end Devs"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "data": {
+            "playcount": "10",
+            "$color": "#8E7032",
+            "image": "http://userserve-ak.last.fm/serve/300x300/11403219.jpg",
+            "$area": 10
+          },
+          "id": "Jason Statham",
+          "name": "Jason Statham"
+        },
+        {
+          "children": [],
+          "data": {
+            "playcount": "30",
+            "$color": "#906E32",
+            "image": "http://userserve-ak.last.fm/serve/300x300/11393921.jpg",
+            "$area": 30
+          },
+          "id": "Arnold Schwarzenegger",
+          "name": "Arnold Schwarzenegger"
+        },
+        {
+          "children": [],
+          "data": {
+            "playcount": "30",
+            "$color": "#906E32",
+            "image": "http://userserve-ak.last.fm/serve/300x300/11393921.jpg",
+            "$area": 30
+          },
+          "id": "Sylvester Stallone",
+          "name": "Sylvester Stallone"
+        },
+        {
+          "children": [],
+          "data": {
+            "playcount": "30",
+            "$color": "#906E32",
+            "image": "http://userserve-ak.last.fm/serve/300x300/11393921.jpg",
+            "$area": 30
+          },
+          "id": "Bruce Willis",
+          "name": "Bruce Willis"
+        }
+
+      ],
+      "data": {
+        "playcount": 40,
+        "$area": 40
+      },
+      "id": "Testers",
+      "color": "#fff",
+      "name": "Testers"
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "data": {
+            "playcount": "50",
+            "$color": "#8E7032",
+            "image": "http://userserve-ak.last.fm/serve/300x300/11403219.jpg",
+            "$area": 50
+          },
+          "id": "album-Thirteenth Step",
+          "name": "Thirteenth Step"
+        },
+        {
+          "children": [],
+          "data": {
+            "playcount": "30",
+            "$color": "#906E32",
+            "image": "http://userserve-ak.last.fm/serve/300x300/11393921.jpg",
+            "$area": 30
+          },
+          "id": "album-Mer De Noms2",
+          "name": "Mer De Noms2"
+        },
+        {
+          "children": [],
+          "data": {
+            "playcount": "20",
+            "$color": "#906E32",
+//            "image": "http://userserve-ak.last.fm/serve/300x300/11393921.jpg",
+            "$area": 20
+          },
+          "id": "album-Mer De Noms",
+          "name": "Mer De Noms"
+        }
+      ],
+      "data": {
+        "playcount": 10,
+        "$area": 10
+      },
+      "id": "Designers",
+      "name": "Designers"
+    }
+  ],
+  "data": {},
+  "id": "root",
+  "name": "Top Albums"
+};
+//end
+var tm = new $jit.TM.Squarified({
+  //where to inject the visualization
+  injectInto: 'infovis',
+  //parent box title heights
+  titleHeight: 45,
+  //enable animations
+//  animate: animate,
+  //box offsets
+  offset: 1,
+  //Attach left and right click events
+  Events: {
+    enable: true,
+    onClick: function(node) {
+      if(node) tm.enter(node);
+    },
+    onRightClick: function() {
+      tm.out();
+    }
+  },
+  duration: 1000,
+  //Enable tips
+  Tips: {
+    enable: true,
+    //add positioning offsets
+    offsetX: 20,
+    offsetY: 20,
+    //implement the onShow method to
+    //add content to the tooltip when a node
+    //is hovered
+    onShow: function(tip, node, isLeaf, domElement) {
+      var html = "<div class=\"tip-title\">" + node.name
+              + "</div><div class=\"tip-text\">";
+      var data = node.data;
+      if(data.playcount) {
+        html += "play count: " + data.$area;
+      }
+      if(data.image) {
+        html += "<img src=\""+ data.image +"\" class=\"album\" />";
+      }
+      tip.innerHTML =  html;
+    }
+  },
+  //Add the name of the node in the correponding label
+  //This method is called once, on label creation.
+  onCreateLabel: function(domElement, node){
+    domElement.innerHTML = node.name;
+    var style = domElement.style;
+    style.display = '';
+    style.border = '1px solid transparent';
+    domElement.onmouseover = function() {
+      style.border = '1px solid #9FD4FF';
+    };
+    domElement.onmouseout = function() {
+      style.border = '1px solid transparent';
+    };
+  }
+});
+tm.loadJSON(json);
+tm.refresh();
+
+</script>
