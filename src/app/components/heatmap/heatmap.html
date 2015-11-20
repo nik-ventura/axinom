@@ -1,3 +1,52 @@
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 12px;
+            background-color: #FFFFFF;
+        }
+        svg {
+            width: 1200px;
+            height: 1100px;
+        }
+
+        /* SVG */
+        svg *::selection {
+            background: transparent;
+        }
+
+        svg *::-moz-selection {
+            background: transparent;
+        }
+
+        svg *::-webkit-selection {
+            background: transparent;
+        }
+
+        .chart {
+            position: relative;
+        }
+
+        .cell  {
+            position: absolute;
+            shape-rendering: crispEdges;
+            border: 1px solid #FFFFFF;
+        }
+
+        .cell .label {
+            color: #FFFFFF;
+            padding: 2px;
+            text-overflow: ellipsis;
+            word-wrap: normal;
+            white-space: pre;
+            overflow: hidden;
+            font-size: 11px;
+        }
+
+    </style>
 <div class="container-fluid">
   <div class="row heatmap-controls animated fadeInDown">
     <div class="col-sm-3 bottom10">
