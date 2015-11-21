@@ -12,6 +12,8 @@
     position: absolute;
       }
 
+
+
 .children:hover{
 
             opacity: 1.0;
@@ -47,14 +49,21 @@
 
         }
 
-        .cell .label {
+        .child .label {
             color: #FFFFFF;
-            padding: 2px;
             text-overflow: ellipsis;
             word-wrap: normal;
             white-space: pre;
             overflow: hidden;
             font-size: 11px;
+        }
+
+
+        .parent .label {
+              z-index: 1000;
+              position: absolute;
+              color: black;
+            font-size: 16px;
         }
 
     </style>
