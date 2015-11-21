@@ -1,39 +1,36 @@
     <style>
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 12px;
-            background-color: #FFFFFF;
-        }
-        svg {
-            width: 1200px;
-            height: 1100px;
-        }
-
-        /* SVG */
-        svg *::selection {
-            background: transparent;
-        }
-
-        svg *::-moz-selection {
-            background: transparent;
-        }
-
-        svg *::-webkit-selection {
-            background: transparent;
-        }
-
-        .chart {
-            position: relative;
-        }
-
-        .cell  {
+        .children, .child  {
             position: absolute;
-            shape-rendering: crispEdges;
             border: 1px solid #FFFFFF;
+        }
+        .children  {
+            background-color: #ddd;
+        }
+
+        .red {
+            background-color: #f16c54;
+        }
+
+        .green {
+          background-color: #8bc53f;
+        }
+
+        .blue {
+            background-color: #00adee;
+
+        }
+
+        .red:hover {
+            background-color: #f16054;
+        }
+
+        .green:hover {
+          background-color: #4bc53f;
+        }
+
+        .blue:hover {
+            background-color: #009dee;
+
         }
 
         .cell .label {
@@ -91,7 +88,7 @@
 
   <div class="row heatmap">
     <div class="col-md-12">
-      <p id="chart" ng-style="mapSize">
+      <div id="chart" ng-style="mapSize">
           <div class="btn-group bottom10" data-toggle="buttons">
             <label class="btn btn-success active">
               <input type="radio" name="Unit" id="Unit" autocomplete="off" checked> Unit
@@ -100,7 +97,7 @@
               <input type="radio" name="Unit" id="Project" autocomplete="off"> Project
             </label>
           </div>
-      </p>
+      </div>
     </div>
   </div>
 </div>
