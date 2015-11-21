@@ -176,7 +176,12 @@
                 g.filter(function(d) {
                     return d._children;
                 })
-                    .classed("children", true)
+                    .classed("blue children", true)
+                    .append("div")
+                    .attr("class", "label")
+                    .text(function(d) {
+                        return d.name ? d.name : "";
+                    })
                     .on("click", zoomin);
 
 
@@ -305,43 +310,43 @@
                 return g;
             }
 
-            // function cellUpdate() {
-            //     this.style("margin-left", function(d) {
-            //         return x(d.x) + 5 + "px";
-            //     })
-            //         .style("margin-top", function(d) {
-            //             return y(d.y) + 5 + "px";
-            //         })
-            //         .style("width", function(d) {
-            //             return Math.max(0, d.dx) - 5 + "px";
-            //         })
-            //         .style("height", function(d) {
-            //             return Math.max(0, d.dy) - 5 + "px";
-            //         })
-            //         .attr("class", function(d) {
-            //             return d.heat + " child";
-            //         });
-            // }
-
             function cellUpdate() {
-                this.attr("style", function(d) {
-                    var margin_left = x(d.x) + 5;
-                    var margin_top = y(d.y) + 15;
-                    var width = Math.max(0, d.dx - 10);
-                    var height = Math.max(0, d.dy - 20);
-                    if (height < 10) {
-                        height = 15;
-                    }
-                    if (d.id === 1) {
-                        margin_top = y(d.y) + 35;
-                        height -= 15;
-                    }
-                    return "width:" + width + "px ; height: " + height + "px ; margin-left: " + margin_left + "px ; margin-top: " + margin_top + "px";;
+                this.style("margin-left", function(d) {
+                    return x(d.x) + "px";
                 })
+                    .style("margin-top", function(d) {
+                        return y(d.y) + "px";
+                    })
+                    .style("width", function(d) {
+                        return Math.max(0, d.dx) + "px";
+                    })
+                    .style("height", function(d) {
+                        return Math.max(0, d.dy) + "px";
+                    })
                     .attr("class", function(d) {
                         return d.heat + " child";
                     });
             }
+
+            // function cellUpdate() {
+            //     this.attr("style", function(d) {
+            //         var margin_left = x(d.x) + 5;
+            //         var margin_top = y(d.y) + 15;
+            //         var width = Math.max(0, d.dx - 10);
+            //         var height = Math.max(0, d.dy - 20);
+            //         if (height < 10) {
+            //             height = 15;
+            //         }
+            //         if (d.id === 1) {
+            //             margin_top = y(d.y) + 35;
+            //             height -= 15;
+            //         }
+            //         return "width:" + width + "px ; height: " + height + "px ; margin-left: " + margin_left + "px ; margin-top: " + margin_top + "px";;
+            //     })
+            //         .attr("class", function(d) {
+            //             return d.heat + " child";
+            //         });
+            // }
 
             function cellUpdateZoom() {
                 this.style("margin-left", function(d) {
