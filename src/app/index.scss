@@ -343,6 +343,17 @@ rzslider span.rz-bar {
 rzslider span.rz-bar-wrapper {
   margin-top: -26px;
 }
+.heatmap-playback {
+  rzslider span.rz-bar-wrapper {
+    margin-top: -26px;
+    height: 36px;
+    color: #333;
+    padding: 1em;
+    border-radius: 3px;
+    border: 1px solid #FFF;
+    background-color: white;
+  }
+}
 rzslider span.rz-pointer {
   top: -23px;
 }
@@ -359,6 +370,9 @@ rzslider span.rz-bubble {
       bottom: 18px;
       color: #0DB9F0;
     }
+  }
+  rzslider span.rz-bar.rz-selection {
+    background: #fff;
   }
   .email-time {
     //padding: 0 1.5em;
@@ -533,18 +547,34 @@ button.btn {
   display: table;
   width: 100%;
   vertical-align: middle;
-  padding: 1.2em 0 0 0;
-  .heatmap-playback-controls, .heatmap-playback-timeline {
-    display: table-cell;
-    vertical-align: middle;
-  }
-  .heatmap-playback-controls {
-    a {
-      text-decoration: none;
-      font-size: 2em;
-      color: #fff;
+  padding: 1.5em 0 0 0;
+
+}
+.heatmap-playback-controls, .heatmap-playback-timeline {
+  display: table-cell;
+  vertical-align: middle;
+}
+.heatmap-playback-controls {
+  a {
+    text-decoration: none;
+    font-size: 1.5em;
+    color: #fff;
+    display: inline-block;
+    border-radius: 30px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background: #00ADEE;
+    padding: 0.17em 1.5em;
+    margin-top: 1.2em;
+    margin-left: -0.6em;
+    z-index: 100;
+    position: Relative;
+    height: 1.7em;
+    i {
+      position: absolute;
+      top: 0.34em;
+      left: 1.1em;
     }
-    width: 10%;
   }
 }
 p{
@@ -1070,8 +1100,10 @@ a {
   margin: 0 2em;
   background: rgba(255,255,255,1);
   .month {
-    padding: 0.5em 0 0 0;
+    background: #f1f1f1;
+    padding: 0.8em 0;
     font-size: 2em;
+    border-bottom:1px solid #ddd
   }
 }
 .data-row {
@@ -1091,6 +1123,13 @@ a {
   &.active {
     display: block;
   }
+  .btn.btn-primary {
+    background: $brand-success;
+    border:none;
+  }
+  .btn.btn-default {
+    background: #666;
+  }
 }
 .calendar {
   -webkit-margin-before: 0em;
@@ -1109,22 +1148,21 @@ a {
     text-align: center;
     cursor: pointer;
     border:1px solid #fff;
-
-    &.selected {
-      background: $brand-success;
-      color: #fff;
-    }
-    &.sick-day {
-      background: $brand-danger;
-      color: #fff;
-    }
-    &.holiday {
-      background: $brand-primary;
-      color: #fff;
-    }
     &:hover {
       border:1px solid #ddd;
       background: #ccc ;
+    }
+    &.sick-day, &.sick-day:hover {
+      background: $brand-danger;
+      color: #fff;
+    }
+    &.holiday, &.holiday:hover {
+      background: $brand-primary;
+      color: #fff;
+    }
+    &.active, &.active:hover {
+      background: $brand-success;
+      color: #fff;
     }
   }
 }
@@ -1138,6 +1176,12 @@ a {
     border-radius: 3px;
     padding: 0.5em;
   }
+}
+.no-margin {
+  margin: 0;
+}
+.no-padd {
+  padding: 0;
 }
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject
