@@ -60,14 +60,6 @@
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
             .style("shape-rendering", "crispEdges");
 
-        // var svg = d3.select("#chart").append("div")
-        //     .attr("width", width + margin.left + margin.right)
-        //     .attr("height", height + margin.bottom + margin.top)
-        //     .style("margin-left", -margin.left + "px")
-        //     .style("margin.right", -margin.right + "px")
-        //     .append("div")
-        //     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-        //     .style("shape-rendering", "crispEdges");
         // update logic
         var x = d3.scale.linear()
             .domain([0, width])
@@ -77,21 +69,6 @@
             .domain([0, height])
             .range([0, height]);
 
-        // rect.attr("x", function(d) {
-        //     return x(d.x);
-        // })
-        //     .attr("y", function(d) {
-        //         return y(d.y);
-        //     })
-        //     .attr("width", function(d) {
-        //         return x(d.x + d.dx) - x(d.x);
-        //     })
-        //     .attr("height", function(d) {
-        //         return y(d.y + d.dy) - y(d.y);
-        //     })
-        //     .attr("class", function(d) {
-        //         return d.class;
-        //     })
         // load data and create visualization
         // d3.json("http://www.billdwhite.com/wordpress/wp-content/data/demo_data_03.json", function(error, data) {
         //     var treemap = d3.layout.treemap()
@@ -182,7 +159,7 @@
 
                 grandparent
                     .datum(d.parent)
-                    .on("click", transition)
+                    .on("click", transitionGrandfather)
                     .select("text")
                     .text(name(d));
 
@@ -202,6 +179,17 @@
                     .classed("children", true)
                     .on("click", transition);
 
+
+
+                g.append("div")
+                    .attr("class", "parent")
+                    .call(parentUpdate)
+                    .append("div")
+                    .attr("class", "label")
+                    .text(function(d) {
+                        return d.name ? d.name : "";
+                    });
+
                 g.selectAll(".child")
                     .data(function(d) {
                         return d._children || [d];
@@ -216,57 +204,7 @@
                         return d.name ? d.name : "";
                     });
                 g.selectAll(".children")
-                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-
-                g.append("div")
-                    .attr("class", "parent")
-                    .call(parentUpdate)
-                    .append("title")
-                    .text(function(d) {
-                        return formatNumber(d.value)
-                    });
-                // grandparent
-                //     .datum(d.parent)
-                //     .on("click", transition)
-                //     .select("text")
-                //     .text(name(d));
-
-                // var g1 = svg.insert("div", ".grandparent")
-                //     .datum(d)
-                //     .attr("class", "depth");
-
-                // var g = g1.selectAll("div")
-                //     .data(d._children)
-                //     .enter().append("div");
-
-                // g.filter(function(d) {
-                //     return d._children;
-                // }).classed("children", true)
-                //     .on("click", transition);
-
-                // g.selectAll(".child")
-                //     .data(function(d) {
-                //         return d._children || [d];
-                //     })
-                //     .enter().append("div")
-                //     .attr("class", "child")
-                //     .call(cellUpdate)
-                //     .append("div")
-                //     .attr("class", "label")
-                //     .text(function(d) {
-                //         return d.name ? d.name : "";
-                //     });
-
-                // g.selectAll(".children")
-                //     .attr("transform", "translate(" + margin.left + "," + margin.top + ")").call(cellUpdate);
-
-                // g.append("div")
-                //     .attr("class", "parent")
-                //     .call(parentUpdate)
-                //     .append("title")
-                //     .text(function(d) {
-                //         return formatNumber(d.value)
-                //     });
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
                 function transition(d) {
                     if (transitioning || !d) return;
@@ -288,7 +226,36 @@
                         return a.depth - b.depth;
                     });
 
-                    t1.selectAll(".child").call(cellUpdate);
+                    t1.selectAll(".child").call(cellUpdateZoom);
+                    t2.selectAll(".child").call(cellUpdateZoom);
+
+                    // Remove the old node when the transition is finished.
+                    t1.remove().each("end", function() {
+                        svg.style("shape-rendering", "crispEdges");
+                        transitioning = false;
+                    });
+                }
+
+                function transitionGrandfather(d) {
+                    if (transitioning || !d) return;
+                    transitioning = true;
+                    var g2 = display(d),
+                        t1 = g1.transition().duration(750),
+                        t2 = g2.transition().duration(750);
+
+                    // Update the domain only after entering new elements.
+                    x.domain([d.x, d.x + d.dx]);
+                    y.domain([d.y, d.y + d.dy]);
+
+                    // Enable anti-aliasing during the transition.
+                    svg.style("shape-rendering", null);
+
+                    // Draw child nodes on top of parent nodes.
+                    svg.selectAll(".depth").sort(function(a, b) {
+                        return a.depth - b.depth;
+                    });
+
+                    t1.selectAll(".depth").call(cellUpdate);
                     t2.selectAll(".child").call(cellUpdate);
 
                     // Remove the old node when the transition is finished.
@@ -321,17 +288,14 @@
                         })
                         .enter().append("div")
                         .attr("class", "child")
-                        .call(cellUpdate);
+                        .call(cellUpdateZoom)
+                        .append("div")
+                        .attr("class", "label")
+                        .text(function(d) {
+                            return d.name ? d.name : "";
+                        });
                     g.selectAll(".children")
-                        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-
-                    // g.append("div")
-                    //     .attr("class", "parent")
-                    //     .call(cellUpdate)
-                    //     .append("title")
-                    //     .text(function(d) {
-                    //         return formatNumber(d.value)
-                    //     });
+                        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
                     return g;
                 }
 
@@ -340,10 +304,29 @@
 
             function cellUpdate() {
                 this.style("margin-left", function(d) {
+                    return x(d.x) + 5 + "px";
+                })
+                    .style("margin-top", function(d) {
+                        return y(d.y) + 5 + "px";
+                    })
+                    .style("padding", "5px")
+                    .style("width", function(d) {
+                        return Math.max(0, d.dx - 10) + "px";
+                    })
+                    .style("height", function(d) {
+                        return Math.max(0, d.dy - 10) + "px";
+                    })
+                    .attr("class", function(d) {
+                        return d.heat + " child";
+                    });
+            }
+
+            function cellUpdateZoom() {
+                this.style("margin-left", function(d) {
                     return x(d.x) + "px";
                 })
                     .style("margin-top", function(d) {
-                        return y(d.y) + "px";
+                        return y(d.y) + 75 + "px";
                     })
                     .style("width", function(d) {
                         return x(d.x + d.dx) - x(d.x) + "px";
@@ -372,7 +355,6 @@
                     .attr("class", function(d) {
                         return d.heat + " parent";
                     });
-
             }
 
             function name(d) {
