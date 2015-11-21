@@ -206,9 +206,15 @@
                     .data(function(d) {
                         return d._children || [d];
                     })
-                    .enter().append("div")
+                    .enter()
+                    .append("div")
                     .attr("class", "child")
-                    .call(cellUpdate);
+                    .call(cellUpdate)
+                    .append("div")
+                    .attr("class", "label")
+                    .text(function(d) {
+                        return d.name ? d.name : "";
+                    });
                 g.selectAll(".children")
                     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
