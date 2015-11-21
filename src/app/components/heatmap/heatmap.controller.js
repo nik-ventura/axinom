@@ -279,6 +279,7 @@
                     x.domain([d.x, d.x + d.dx]);
                     y.domain([d.y, d.y + d.dy]);
 
+
                     // Enable anti-aliasing during the transition.
                     svg.style("shape-rendering", null);
 

@@ -85,19 +85,19 @@
       <input date-range-picker class="form-control date-picker" type="text" ng-model="date"
              min="'2015-11-12'" max="'2016-08-25'" placeholder="Pick time range"/>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-2">
       <div class="heatmap-playback">
-        <div class="heatmap-playback-controls">
-          <a href="" ng-click="playToggle()" >
-            <i class="icon-play" ng-class="{'visible' : !play, 'hidden': play}" scroll-to="chart"></i>
-            <i class="icon-pause" ng-class="{'visible' : play, 'hidden': !play}"></i>
-          </a>
-        </div>
         <div class="heatmap-playback-timeline">
           <rzslider rz-slider-floor="0" rz-slider-ceil="dateMax" rz-slider-model="startDate" rz-slider-translate="datesTranslate" class="ng-isolate-scope" role="slider"></rzslider>
         </div>
+      </div>
     </div>
-  </div>
+    <div class="col-sm-1 heatmap-playback-controls">
+      <a href="" ng-click="playToggle()" >
+        <i class="icon-play" ng-class="{'visible' : !play, 'hidden': play}" scroll-to="chart"></i>
+        <i class="icon-pause" ng-class="{'visible' : play, 'hidden': !play}"></i>
+      </a>
+    </div>
   </div>
 
   <div class="row heatmap">

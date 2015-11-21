@@ -10,8 +10,16 @@
     var vm = this;
       $scope.selectDate = false;
       $scope.sickDateSet = false;
+      $scope.openControls = false;
+
       $scope.openControls = function(){
           return true;
+      };
+      $scope.date = {
+          '2015': [{
+              'month': 'November',
+              'day': 31
+          }]
       };
       $scope.employees = [
           {"name": "Bruce Willis"},
