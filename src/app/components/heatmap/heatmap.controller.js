@@ -159,7 +159,7 @@
 
                 grandparent
                     .datum(d.parent)
-                    .on("click", transitionGrandfather)
+                    .on("click", zoomout)
                     .select("text")
                     .text(name(d));
 
@@ -177,7 +177,7 @@
                     return d._children;
                 })
                     .classed("children", true)
-                    .on("click", transition);
+                    .on("click", zoomin);
 
 
 
@@ -206,12 +206,14 @@
                 g.selectAll(".children")
                     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-                function transition(d) {
+                function zoomin(d) {
                     if (transitioning || !d) return;
                     transitioning = true;
                     var g2 = displayChild(d),
                         t1 = g1.transition().duration(750),
                         t2 = g2.transition().duration(750);
+                    t1.selectAll(".parent").style("display", "none");
+                    t2.selectAll(".label").call(text).style("fill-opacity", 1);
 
                     // Update the domain only after entering new elements.
                     x.domain([d.x, d.x + d.dx]);
@@ -236,7 +238,7 @@
                     });
                 }
 
-                function transitionGrandfather(d) {
+                function zoomout(d) {
                     if (transitioning || !d) return;
                     transitioning = true;
                     var g2 = display(d),
@@ -266,9 +268,10 @@
                 }
 
                 function displayChild(d) {
+                    initialize(root);
                     grandparent
                         .datum(d.parent)
-                        .on("click", transition)
+                        .on("click", zoomin)
                         .select("text")
                         .text(name(d));
 
@@ -302,20 +305,39 @@
                 return g;
             }
 
+            // function cellUpdate() {
+            //     this.style("margin-left", function(d) {
+            //         return x(d.x) + 5 + "px";
+            //     })
+            //         .style("margin-top", function(d) {
+            //             return y(d.y) + 5 + "px";
+            //         })
+            //         .style("width", function(d) {
+            //             return Math.max(0, d.dx) - 5 + "px";
+            //         })
+            //         .style("height", function(d) {
+            //             return Math.max(0, d.dy) - 5 + "px";
+            //         })
+            //         .attr("class", function(d) {
+            //             return d.heat + " child";
+            //         });
+            // }
+
             function cellUpdate() {
-                this.style("margin-left", function(d) {
-                    return x(d.x) + 5 + "px";
+                this.attr("style", function(d) {
+                    var margin_left = x(d.x) + 5;
+                    var margin_top = y(d.y) + 15;
+                    var width = Math.max(0, d.dx - 10);
+                    var height = Math.max(0, d.dy - 20);
+                    if (height < 10) {
+                        height = 15;
+                    }
+                    if (d.id === 1) {
+                        margin_top = y(d.y) + 35;
+                        height -= 15;
+                    }
+                    return "width:" + width + "px ; height: " + height + "px ; margin-left: " + margin_left + "px ; margin-top: " + margin_top + "px";;
                 })
-                    .style("margin-top", function(d) {
-                        return y(d.y) + 5 + "px";
-                    })
-                    .style("padding", "5px")
-                    .style("width", function(d) {
-                        return Math.max(0, d.dx - 10) + "px";
-                    })
-                    .style("height", function(d) {
-                        return Math.max(0, d.dy - 10) + "px";
-                    })
                     .attr("class", function(d) {
                         return d.heat + " child";
                     });
@@ -363,6 +385,15 @@
 
             function time(d) {
                 return d.parent ? time(d.parent) + "." + d.time : d.time;
+            }
+
+            function text(text) {
+                text.attr("x", function(d) {
+                    return x(d.x) + 6;
+                })
+                    .attr("y", function(d) {
+                        return y(d.y) + 6
+                    });
             }
         });
     }

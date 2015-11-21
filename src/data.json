@@ -1,64 +1,158 @@
 {
- "name": "Units",
- "children": [
-  {
-   "name": "Designers Unit",
-   "heat":"blue",
-   "value": 50,
-   "time": "",
-   "children": [
-       {"name": "Sylvester Stallone", "time": "70", "value": 10, "heat": "red"},
-       {"name": "Arnold Schwarzenegger", "time": "90", "value": 20, "heat": "green"},
-       {"name": "Bruce Willis", "time": "80", "value": 30, "heat": "green"},
-       {"name": "Jason Statham", "time": "95", "value": 40, "heat": "blue"}
-   ]
-  },
-  {
-   "name": "Front-end Dev",
-    "heat":"red",
-     "value": 50,
-     "time": "",
-   "children": [
-       {"name": "Jet Li", "time": "25", "value": 3, "heat": "green"},
-       {"name": "Jackie Chan", "time": "15", "value": 7, "heat": "green"},
-       {"name": "Bruce Willis", "time": "40", "value": 7, "heat": "blue"},
-       {"name": "Jason Statham", "time": "90", "value": 15, "heat": "green"},
-       {"name": "Chuck Norris", "time": "100", "value": 8, "heat": "green"},
-       {"name": "Tom Cruise", "time": "100", "value": 5, "heat": "green"},
-       {"name": "Jet Low", "time": "90", "value": 10, "heat": "green"},
-       {"name": "Tom Henks", "time": "100", "value": 10, "heat": "red"},
-       {"name": "Rock", "time": "100", "value": 10, "heat": "green"},
-       {"name": "Morgan Freeman", "time": "100", "value": 5, "heat": "red"},
-       {"name": "Deni De Vito", "time": "100", "value": 20, "heat": "red"}
-
-   ]
-  },
-    {
-        "name": "Testers",
-        "heat":"red",
+    "name": "Units",
+    "children": [{
+        "name": "Designers Unit",
+        "heat": "blue",
         "value": 50,
         "time": "",
-        "children": [
-         {"name": "Sylvester Stallone", "time": "100", "value": 40, "heat": "green"},
-         {"name": "Arnold Schwarzenegger", "time": "100", "value": 50, "heat": "blue"},
-         {"name": "Bruce Willis", "time": "70", "value": 10, "heat": "blue"}
-        ]
-    }
-     ,
-     {
-         "name": "Marketing",
-         "heat":"blue",
-         "value": 50,
-         "time": "",
-         "children": [
-             {"name": "Bengamin Franklin", "time": "100", "value": 20, "heat": "red"},
+        "children": [{
+            "name": "Sylvester Stallone",
+            "time": "70",
+            "value": 10,
+            "heat": "red"
+        }, {
+            "name": "Arnold Schwarzenegger",
+            "time": "90",
+            "value": 20,
+            "heat": "green"
+        }, {
+            "name": "Bruce Willis",
+            "time": "80",
+            "value": 30,
+            "heat": "green"
+        }, {
+            "name": "Jason Statham",
+            "time": "95",
+            "value": 40,
+            "heat": "blue",
+            "id": 1
+        }]
+    }, {
+        "name": "Front-end Dev",
+        "heat": "red",
+        "value": 50,
+        "time": "",
+        "children": [{
+                "name": "Jet Li",
+                "time": "25",
+                "value": 3,
+                "heat": "green"
+            }, {
+                "name": "Jackie Chan",
+                "time": "15",
+                "value": 7,
+                "heat": "green"
+            }, {
+                "name": "Bruce Willis",
+                "time": "40",
+                "value": 7,
+                "heat": "blue"
+            }, {
+                "name": "Jason Statham",
+                "time": "90",
+                "value": 15,
+                "heat": "green"
+            }, {
+                "name": "Chuck Norris",
+                "time": "100",
+                "value": 8,
+                "heat": "green"
+            }, {
+                "name": "Tom Cruise",
+                "time": "100",
+                "value": 5,
+                "heat": "green"
+            }, {
+                "name": "Jet Low",
+                "time": "90",
+                "value": 10,
+                "heat": "green"
+            }, {
+                "name": "Tom Henks",
+                "time": "100",
+                "value": 10,
+                "heat": "red"
+            }, {
+                "name": "Rock",
+                "time": "100",
+                "value": 10,
+                "heat": "green"
+            }, {
+                "name": "Morgan Freeman",
+                "time": "100",
+                "value": 5,
+                "heat": "red"
+            }, {
+                "name": "Deni De Vito",
+                "time": "100",
+                "value": 20,
+                "heat": "red",
+                "id": 1
+            }
 
-             {"name": "Sylvester Stallone", "time": "45", "value": 15, "heat": "green"},
-             {"name": "Jet Li", "time": "65", "value": 10, "heat": "green"},
-             {"name": "Jackie Chan", "time": "15", "value": 10, "heat": "green"},
-             {"name": "Bruce Lee", "time": "80", "value": 35, "heat": "green"},
-             {"name": "Chuck Norris", "time": "100", "value": 10, "heat": "green"}
-         ]
-     }
- ]
+        ]
+    }, {
+        "name": "Testers",
+        "heat": "red",
+        "value": 50,
+        "time": "",
+        "children": [{
+            "name": "Sylvester Stallone",
+            "time": "100",
+            "value": 40,
+            "heat": "green"
+        }, {
+            "name": "Arnold Schwarzenegger",
+            "time": "100",
+            "value": 50,
+            "heat": "blue",
+            "id": 1
+        }, {
+            "name": "Bruce Willis",
+            "time": "70",
+            "value": 10,
+            "heat": "blue"
+        }]
+    }, {
+        "name": "Marketing",
+        "heat": "blue",
+        "value": 50,
+        "time": "",
+        "id": 1,
+        "children": [{
+                "name": "Bengamin Franklin",
+                "time": "100",
+                "value": 20,
+                "heat": "red"
+            },
+
+            {
+                "name": "Sylvester Stallone",
+                "time": "45",
+                "value": 15,
+                "heat": "green"
+            }, {
+                "name": "Jet Li",
+                "time": "65",
+                "value": 10,
+                "heat": "green"
+            }, {
+                "name": "Jackie Chan",
+                "time": "15",
+                "value": 10,
+                "heat": "green"
+            }, {
+                "name": "Bruce Lee",
+                "time": "80",
+                "value": 35,
+                "heat": "green",
+                "id": 1
+            }, {
+                "name": "Chuck Norris",
+                "time": "100",
+                "value": 10,
+                "heat": "green"
+            }
+        ]
+    }]
 }
