@@ -595,5 +595,10 @@
         //             });
         //     }
         // });
+        setTimeout(function(){
+            $(".cell .unit.value:contains('100')").addClass("hidden");
+            console.log('Fired')
+        },100)
+
     }
 })();

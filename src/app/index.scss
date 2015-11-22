@@ -693,12 +693,7 @@ p{
 .top10 {
   margin-top: 10px;
 }
-.bottom10 {
-  margin-bottom: 10px;
-}
-.bottom20 {
-  margin-bottom: 20px;
-}
+
 .full-w {
   width: 100%!important;
 }
@@ -709,9 +704,9 @@ p{
   width: 100%;
 }
 .chart {
-  .cell:nth-child(2) {
-    background: #5D5C5A!important;
-  }
+  //.cell:nth-child(2) {
+  //  background: #5D5C5A!important;
+  //}
   .cell:nth-child(2){
     .unit.value:nth-child(2) {
       display: none;
@@ -723,7 +718,7 @@ p{
 }
 .cell {
   .unit.value {
-    margin-top: 25px;
+    margin-top: 30px;
     margin-left: 10px;
     color:#333;
   }
@@ -734,9 +729,10 @@ p{
 .label {
   font-size: 1em;
   &.value {
-    font-size: 0.7em;
+    font-size: 0.8em;
     display: block;
     text-align: left;
+    color: #333!important;
   }
 }
 .unit.value {
@@ -1142,8 +1138,21 @@ a {
     background: #f1f1f1;
     padding: 0.8em 0;
     font-size: 2em;
-    border-bottom:1px solid #ddd
+    border-bottom:1px solid #ddd;
+    i {
+      font-size: 0.7em;
+      color: #333;
+      &:first-child {
+        margin-right: 15px;
+      }
+      &:last-child {
+        margin-left: 15px;
+      }
+    }
   }
+}
+.list-group-item.node-treeview-expandible.node-selected {
+  background: $brand-primary!important;
 }
 .data-row {
   border-bottom:1px solid #ccc;
@@ -1221,6 +1230,12 @@ a {
 }
 .no-padd {
   padding: 0;
+}
+.bottom10 {
+  margin-bottom: 10px!important;
+}
+.bottom20 {
+  margin-bottom: 20px!important;
 }
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject

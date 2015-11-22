@@ -6,7 +6,7 @@
         <input type="text" class="form-control" ng-model="searchEmployee" placeholder="Find an employee">
       </div>
     </div>
-    <div class="col-md-10 text-center month padding: 0.8em 0;">November</div>
+    <div class="col-md-10 text-center month padding: 0.8em 0;"><i class="glyphicon glyphicon-chevron-left"></i>      November 2015<i class="glyphicon glyphicon-chevron-right"></i>  </div>
   </div>
   <div class="row data-row" data-ng-repeat="employee in employees | filter: searchEmployee "  ng-class="{active: $scope.openControls}">
     <div class="col-md-2 no-padd">
