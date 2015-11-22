@@ -123,10 +123,10 @@
                 function zoomin(d) {
                     if (transitioning || !d || d.depth >= depth_child) return;
                     transitioning = true;
-                    display(d);
-                    if (depth_child > 1)
+                    if (depth_child > 1 && d.depth >= 1) {
                         depth_child--;
-                    transitioning = false;
+                    }
+                    display(d);
                     // var t1 = cellSelection.transition().duration(750);
                     // var t2 = cellEnterSelection.transition().duration(750);
 
@@ -150,14 +150,17 @@
                     //     svg.style("shape-rendering", "crispEdges");
                     //     transitioning = false;
                     // });
+                    transitioning = false;
                 }
 
                 function zoomout(d) {
                     if (transitioning || !d || d.depth >= depth_child) return;
                     transitioning = true;
                     display(d);
-                    if (depth_child < 2)
+                    if (depth_child < 2) {
+                        console.log(depth_child);
                         depth_child++;
+                    }
                     transitioning = false;
                     // var t1 = cellSelection.transition().duration(750);
                     // var t2 = cellEnterSelection.transition().duration(750);
