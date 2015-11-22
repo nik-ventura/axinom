@@ -22,9 +22,9 @@
         // setup
         var _margin = {
             top: 75,
-            bottom: 20,
-            left: 20,
-            right: 20
+            bottom: 0,
+            left: 0,
+            right: 0
         };
         var transitioning;
         var _width = $(window).width();
@@ -51,6 +51,19 @@
             .value(function(d) {
                 return d.value;
             });
+
+        var grandparent = svg.append("div")
+            .attr("class", "grandparent");
+
+
+        grandparent.append("div")
+            .style("top", -_margin.top + "px")
+            .style("width", _width + "px")
+            .style("height", _margin.top + "px");
+
+        grandparent.append("div")
+            .style("left", (_width / 2) - 20 + "px")
+            .style("top", -35 + "px");
 
         // update logic
         var x = d3.scale.linear()
@@ -84,6 +97,11 @@
             var depth_child = 2;
 
             function display(data) {
+                grandparent
+                    .datum(data.parent)
+                    .on("click", zoomout)
+                    .select("text")
+                    .text(name(data));
                 var nodes = treemap.nodes(data);
                 svg.selectAll(".cell").remove();
                 var cellSelection = svg.selectAll(".cell").data(nodes);
@@ -106,7 +124,8 @@
                     if (transitioning || !d || d.depth >= depth_child) return;
                     transitioning = true;
                     display(d);
-                    depth_child--;
+                    if (depth_child > 1)
+                        depth_child--;
                     transitioning = false;
                     // var t1 = cellSelection.transition().duration(750);
                     // var t2 = cellEnterSelection.transition().duration(750);
@@ -131,6 +150,42 @@
                     //     svg.style("shape-rendering", "crispEdges");
                     //     transitioning = false;
                     // });
+                }
+
+                function zoomout(d) {
+                    if (transitioning || !d || d.depth >= depth_child) return;
+                    transitioning = true;
+                    display(d);
+                    if (depth_child < 2)
+                        depth_child++;
+                    transitioning = false;
+                    // var t1 = cellSelection.transition().duration(750);
+                    // var t2 = cellEnterSelection.transition().duration(750);
+
+                    // // Update the domain only after entering new elements.
+                    // x.domain([d.x, d.x + d.dx]);
+                    // y.domain([d.y, d.y + d.dy]);
+
+                    // // Enable anti-aliasing during the transition.
+                    // svg.style("shape-rendering", null);
+
+                    // // Draw child nodes on top of parent nodes.
+                    // svg.selectAll(".cell").sort(function(a, b) {
+                    //     return a.depth - b.depth;
+                    // });
+
+                    // t1.selectAll(".cell").call(cellUpdate);
+                    // t2.selectAll(".cell").call(cellUpdate);
+
+                    // // Remove the old node when the transition is finished.
+                    // t1.remove().each("end", function() {
+                    //     svg.style("shape-rendering", "crispEdges");
+                    //     transitioning = false;
+                    // });
+                }
+
+                function name(d) {
+                    return d.parent ? name(d.parent) + " → " + d.name : d.name;
                 }
             }
         });
