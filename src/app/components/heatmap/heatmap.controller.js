@@ -51,13 +51,22 @@
             .value(function(d) {
                 return d.value;
             });
+
         // update logic
+        var x = d3.scale.linear()
+            .domain([0, _chartWidth])
+            .range([0, _chartWidth]);
+
+        var y = d3.scale.linear()
+            .domain([0, _chartHeight])
+            .range([0, _chartHeight]);
+
         function cellUpdate() {
             this.style("left", function(d) {
-                return d.x + "px";
+                return x(d.x) + "px";
             })
                 .style("top", function(d) {
-                    return d.y + "px";
+                    return y(d.y) + "px";
                 })
                 .style("width", function(d) {
                     return Math.max(0, d.dx) + "px";
@@ -72,17 +81,15 @@
         // load data and create visualization
         d3.json("data.json", function(error, data) {
             display(data);
+            var depth_child = 2;
 
             function display(data) {
-                console.log(data);
                 var nodes = treemap.nodes(data);
-                console.log(nodes);
+                svg.selectAll(".cell").remove();
                 var cellSelection = svg.selectAll(".cell").data(nodes);
-                console.log(cellSelection);
                 var cellEnterSelection = cellSelection.enter().append("div")
                     .attr("class", "cell").on("click", zoomin);
-                console.log(cellEnterSelection);
-                cellEnterSelection.append("div")
+                cellSelection.append("div")
                     .attr("class", function(d) {
                         if (d.depth < 2) {
                             return "unit label";
@@ -93,42 +100,38 @@
                     .text(function(d) {
                         return d.name ? d.name : "";
                     });
-                cellSelection.transition().duration(250)
-                    .call(cellUpdate);
-                cellSelection.exit().remove();
+                cellEnterSelection.call(cellUpdate);
 
                 function zoomin(d) {
-                    if (transitioning || !d) return;
+                    if (transitioning || !d || d.depth >= depth_child) return;
                     transitioning = true;
-                    var g2 = display(d);
-                    var t1 = cellEnterSelection.transition().duration(750);
-                    var t2 = g2.transition().duration(750);
-                    t1.selectAll(".parent").style("display", "none");
-                    // t2.selectAll(".label").call(text).style("fill-opacity", 1);
+                    display(d);
+                    depth_child--;
+                    transitioning = false;
+                    // var t1 = cellSelection.transition().duration(750);
+                    // var t2 = cellEnterSelection.transition().duration(750);
 
-                    // Update the domain only after entering new elements.
+                    // // Update the domain only after entering new elements.
                     // x.domain([d.x, d.x + d.dx]);
                     // y.domain([d.y, d.y + d.dy]);
 
+                    // // Enable anti-aliasing during the transition.
+                    // svg.style("shape-rendering", null);
 
-                    // Enable anti-aliasing during the transition.
-                    svg.style("shape-rendering", null);
-
-                    // Draw child nodes on top of parent nodes.
-                    // svg.selectAll(".depth").sort(function(a, b) {
+                    // // Draw child nodes on top of parent nodes.
+                    // svg.selectAll(".cell").sort(function(a, b) {
                     //     return a.depth - b.depth;
                     // });
 
-                    t1.selectAll(".cell").call(cellUpdate);
-                    t2.selectAll(".cell").call(cellUpdate);
+                    // t1.selectAll(".cell").call(cellUpdate);
+                    // t2.selectAll(".cell").call(cellUpdate);
 
-                    // Remove the old node when the transition is finished.
-                    t1.remove().each("end", function() {
-                        svg.style("shape-rendering", "crispEdges");
-                        transitioning = false;
-                    });
+                    // // Remove the old node when the transition is finished.
+                    // t1.remove().each("end", function() {
+                    //     svg.style("shape-rendering", "crispEdges");
+                    //     transitioning = false;
+                    // });
                 }
-                return cellEnterSelection;
             }
         });
 
