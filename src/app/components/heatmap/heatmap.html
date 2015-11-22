@@ -1,4 +1,23 @@
     <style>
+        .chart {
+            position: relative;
+        }
+
+        .cell  {
+            position: absolute;
+            shape-rendering: crispEdges;
+            border: 1px solid #FFFFFF;
+        }
+
+        .cell .label {
+            color: #FFFFFF;
+            padding: 2px;
+            text-overflow: ellipsis;
+            word-wrap: normal;
+            white-space: pre;
+            overflow: hidden;
+        }
+
         .children, .child  {
             position: absolute;
         }
@@ -60,13 +79,10 @@
         }
 
 
-        .parent .label {
-              z-index: 1000;
-              position: absolute;
-              color: white;
+        .parent .label, .unit.label {
             font-size: 16px;
-    margin-top: 5px;
-    position:absolute;
+            padding: 10px;
+            position:absolute;
         }
 
     </style>
