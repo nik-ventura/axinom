@@ -22,6 +22,7 @@
             word-wrap: normal;
             white-space: pre;
             overflow: hidden;
+            font-weight: 100;
         }
 
         .children  {
@@ -66,8 +67,8 @@
 
 
         .parent .label, .unit.label {
-            font-size: 16px;
-            padding: 10px;
+            font-size: 18px;
+            padding: 5px 10px;
             position:absolute;
         }
 
@@ -102,7 +103,7 @@
     <div class="col-sm-2">
       <div class="heatmap-playback">
         <div class="heatmap-playback-timeline">
-          <rzslider rz-slider-floor="0" rz-slider-ceil="dateMax" rz-slider-model="startDate" rz-slider-translate="datesTranslate" class="ng-isolate-scope" role="slider"></rzslider>
+          <rzslider rz-slider-floor="0" rz-slider-ceil="dateMax" rz-slider-model="datesArray" rz-slider-translate="datesTranslate" class="ng-isolate-scope" role="slider"></rzslider>
         </div>
       </div>
     </div>

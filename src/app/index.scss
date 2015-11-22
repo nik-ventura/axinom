@@ -142,14 +142,15 @@ body {
   animation-name: fadeInUp;
 
 }
+
 .heatmap {
   .btn-group {
-    width: 100%;
     position: absolute;
-    top: 0.8em;
+    top: 0.43em;
     width: 20%;
-    left: 2em;
+    right: 2.5em;
     display: table;
+    z-index: 10;
   }
 }
 .heat-log {
@@ -352,6 +353,10 @@ rzslider span.rz-bar-wrapper {
     border-radius: 3px;
     border: 1px solid #FFF;
     background-color: white;
+  }
+  rzslider span.rz-bubble {
+    bottom: 37px;
+    color: #fff;
   }
 }
 rzslider span.rz-pointer {
@@ -583,7 +588,7 @@ p{
 }
 .btn-group {
   .btn {
-    padding: 0.5em 0;
+    padding: 0.2em 0;
     width: 50%;
   }
   &.radio {
@@ -700,9 +705,43 @@ p{
 
 // Chart
 #chart {
-  background: #ddd;
+  background: transparent;
+  width: 100%;
 }
+.chart {
+  .cell:nth-child(2) {
+    background: #5D5C5A!important;
+  }
+  .cell:nth-child(2){
+    .unit.value:nth-child(2) {
+      display: none;
+    }
+  }
+}
+.parent .label, .unit.label {
+  font-size: 18px;
+}
+.cell {
+  .unit.value {
+    margin-top: 25px;
+    margin-left: 10px;
+    color:#333;
+  }
+}
+.grandparent {
+  //display: none;
+}
+.label {
+  font-size: 1em;
+  &.value {
+    font-size: 0.7em;
+    display: block;
+    text-align: left;
+  }
+}
+.unit.value {
 
+}
 text {
   pointer-events: none;
 }

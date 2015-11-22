@@ -8,27 +8,30 @@
     /** @ngInject */
     function HeatmapController($window, toastr, $scope) {
         var vm = this;
+
+        // Heatmap playback slider
         $scope.play = false;
         $scope.playToggle = function() {
             var self = this;
             $scope.play = !$scope.play;
-        }
-        var datesArray = ['21-02-15', '22-02-15', '23-02-15', '24-02-15', '25-02-15', '26-02-15'];
-        $scope.dateMax = datesArray.length;
-
-        $scope.translate = function(value) {
-            return value + '%';
         };
-        // setup
+        var datesArray = ['21-02-15', '22-02-15', '23-02-15', '24-02-15', '25-02-15', '26-02-15'];
+        $scope.dateMax = datesArray.length -1;
+        $scope.datesArray = 0;
+        $scope.datesTranslate = function(value) {
+            return datesArray[value] + '';
+        };
+
+        // Heatmap
         var _margin = {
-            top: 75,
+            top: 0,
             bottom: 0,
             left: 0,
-            right: 10
+            right: 0
         };
         var transitioning;
-        var _width = $(window).width() - 10;
-        var _height = $(window).height() - 60;
+        var _width = $(window).width() - 0;
+        var _height = $(window).height() ;
         var _chartWidth = _width - (_margin.left + _margin.right);
         var _chartHeight = _height - (_margin.top + _margin.bottom);
         var _sizeByMetric = "size";
@@ -46,7 +49,7 @@
 
 
         var treemap = d3.layout.treemap()
-            .padding([50, 10, 10, 10])
+            .padding([40, 10, 10, 10])
             .size([_chartWidth, _chartHeight])
             .value(function(d) {
                 return d.value;
@@ -121,6 +124,20 @@
                         }
                         return "";
                     });
+                cellSelection.append("div")
+                    .attr("class", function(d) {
+                        if (d.depth < 2) {
+                            return "unit value";
+                        } else {
+                            return "label value";
+                        }
+                    })
+                    .text(function(d) {
+                        if (d.name) {
+                            return  (d.value && d.value !== "" ? d.value + "%" : "");
+                        }
+                        return "";
+                    });
                 cellEnterSelection.call(cellUpdate);
 
                 function zoomin(d) {
@@ -130,6 +147,7 @@
                         depth_child--;
                     }
                     display(d);
+
                     // var t1 = cellSelection.transition().duration(750);
                     // var t2 = cellEnterSelection.transition().duration(750);
 

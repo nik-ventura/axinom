@@ -95,7 +95,7 @@
         ]
     }, {
         "name": "Testers",
-        "heat": "red",
+        "heat": "blue",
         "value": 10,
         "time": "",
         "children": [{
@@ -117,7 +117,7 @@
         }]
     }, {
         "name": "Marketing",
-        "heat": "blue",
+        "heat": "green",
         "value": 10,
         "time": "",
         "id": 1,
