@@ -24,10 +24,10 @@
             top: 75,
             bottom: 0,
             left: 0,
-            right: 0
+            right: 10
         };
         var transitioning;
-        var _width = $(window).width();
+        var _width = $(window).width() - 10;
         var _height = $(window).height() - 60;
         var _chartWidth = _width - (_margin.left + _margin.right);
         var _chartHeight = _height - (_margin.top + _margin.bottom);
@@ -58,11 +58,11 @@
 
         grandparent.append("div")
             .style("top", -_margin.top + "px")
-            .style("width", _width + "px")
+            .style("width", _chartWidth + "px")
             .style("height", _margin.top + "px");
 
         grandparent.append("div")
-            .style("left", (_width / 2) - 20 + "px")
+            .style("left", (_chartWidth / 2) - 20 + "px")
             .style("top", -35 + "px");
 
         // update logic
@@ -116,7 +116,10 @@
                         }
                     })
                     .text(function(d) {
-                        return d.name ? d.name : "";
+                        if (d.name) {
+                            return d.name + " " + (d.time && d.time !== "" ? d.time + "%" : "");
+                        }
+                        return "";
                     });
                 cellEnterSelection.call(cellUpdate);
 

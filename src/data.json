@@ -1,10 +1,11 @@
 {
     "name": "Units",
     "heat": "blue",
+    "value": 10,
     "children": [{
         "name": "Designers Unit",
         "heat": "blue",
-        "value": 50,
+        "value": 10,
         "time": "",
         "children": [{
             "name": "Sylvester Stallone",
@@ -31,7 +32,7 @@
     }, {
         "name": "Front-end Dev",
         "heat": "red",
-        "value": 50,
+        "value": 10,
         "time": "",
         "children": [{
                 "name": "Jet Li",
@@ -95,7 +96,7 @@
     }, {
         "name": "Testers",
         "heat": "red",
-        "value": 50,
+        "value": 10,
         "time": "",
         "children": [{
             "name": "Sylvester Stallone",
@@ -117,7 +118,7 @@
     }, {
         "name": "Marketing",
         "heat": "blue",
-        "value": 50,
+        "value": 10,
         "time": "",
         "id": 1,
         "children": [{
