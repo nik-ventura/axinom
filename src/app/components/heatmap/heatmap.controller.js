@@ -6,7 +6,7 @@
         .controller('HeatmapController', HeatmapController);
 
     /** @ngInject */
-    function HeatmapController($window, toastr, $scope) {
+    function HeatmapController($window, $scope) {
         var vm = this;
 
         // Heatmap playback slider
@@ -212,6 +212,7 @@
                     return d.parent ? name(d.parent) + " → " + d.name : d.name;
                 }
             }
+
         });
 
         // setup
@@ -599,6 +600,20 @@
             $(".cell .unit.value:contains('100')").addClass("hidden");
             console.log('Fired')
         },100)
+        $('html').on('keydown' , function(event) {
+
+            if(! $(event.target).is('input')) {
+                console.log(event.which);
+                event.preventDefault();
+                if(event.which == 8) {
+//                    $route.reload();
+                    location.reload();
+//                    zoomout(d);
+                    return false;
+                }
+            }
+        });
+
 
     }
 })();
