@@ -59,7 +59,8 @@
             };
 
             $scope.change = function(d) {
-                if ((previousLog + previousLog2 + previousLog3) <= 100 || ($scope.timeLog + $scope.timeLog2 + $scope.timeLog3) <= 100) {
+                if ((previousLog + previousLog2 + previousLog3) < 100 || ($scope.timeLog +
+                    $scope.timeLog2 + $scope.timeLog3) < 100) {
                     previousLog = d.timeLog;
                     previousLog2 = d.timeLog2;
                     previousLog3 = d.timeLog3;
