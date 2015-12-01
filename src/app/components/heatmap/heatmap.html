@@ -1,83 +1,6 @@
-    <style>
-        .chart {
-            position: relative;
-        }
 
-        .cell  {
-            position: absolute;
-            shape-rendering: crispEdges;
-            border: 1px solid #FFFFFF;
-        }
-
-        .grandparent{
-          top: -75px;
-          position: absolute;
-          background-color: grey;
-        }
-
-        .cell .label {
-            color: #FFFFFF;
-            padding: 2px;
-            text-overflow: ellipsis;
-            word-wrap: normal;
-            white-space: pre;
-            overflow: hidden;
-            font-weight: 100;
-        }
-
-        .children  {
-            background-color: #ddd;
-        }
-
-        .red {
-            background-color: #f16c54;
-        }
-        .grey {
-          background: #5D5C5A;
-        }
-
-        .green {
-          background-color: #8bc53f;
-        }
-
-        .blue {
-            background-color: #00adee;
-
-        }
-
-        .red:hover {
-            background-color: #f16054;
-        }
-
-        .green:hover {
-          background-color: #4bc53f;
-        }
-
-        .blue:hover {
-            background-color: #009dee;
-
-        }
-
-        .child .label {
-            color: #FFFFFF;
-            text-overflow: ellipsis;
-            word-wrap: normal;
-            white-space: pre;
-            overflow: hidden;
-            font-size: 11px;
-    position:absolute;
-        }
-
-
-        .parent .label, .unit.label {
-            font-size: 18px;
-            padding: 10px;
-            position:absolute;
-        }
-
-    </style>
 <div class="container-fluid">
-  <div class="row heatmap-controls animated fadeInDown">
+  <div class="row heatmap-controls animated fadeInDown no-margin">
     <div class="col-sm-3 bottom10">
       <h1>Filter by project:</h1>
       <select chosen multiple id="states" class="top10">
@@ -118,8 +41,8 @@
     </div>
   </div>
 
-  <div class="row heatmap">
-    <div class="col-md-12">
+  <div class="row heatmap no-margin">
+    <div class="col-md-12 no-padd">
       <div id="chart" ng-style="mapSize">
           <div class="btn-group bottom10" data-toggle="buttons">
             <label class="btn btn-success active">

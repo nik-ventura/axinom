@@ -1,6 +1,6 @@
 {
     "name": "Units",
-    "heat": "blue",
+    "heat": "grey",
     "value": 10,
     "children": [{
         "name": "Designers Unit",

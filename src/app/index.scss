@@ -35,7 +35,12 @@ $font-light:300;
   color: #000;
   padding: 0.2em 0;
 }
-
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 html, body {
   height: 100%;
 }
@@ -136,7 +141,7 @@ body {
   }
   &.blue-level {
     span {
-      background: $brand-primary;
+      background: $brand-primary ;
     }
     &.selected {
       span {
@@ -182,7 +187,6 @@ body {
     border: 2px solid #fff;
     height: 36px;
     color: #333;
-    padding: 1em;
     border-radius: 3px;
     border: 1px solid #FFF;
     background-color: rgba(255, 255, 255, 1);

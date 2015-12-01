@@ -58,11 +58,11 @@
               <label class="sr-only">Mark selected days</label>
 
               <select class="form-control" id="log_type">
-                <option>Holidays</option>
-                <option>Sick days</option>
+                <option value="holiday">Holidays</option>
+                <option value="sick-day">Sick days</option>
               </select>
             </div>
-            <button type="submit" class="btn btn-primary confirm-days" onclick="confirmDays('holiday')">Confirm</button>
+            <button type="submit" class="btn btn-primary confirm-days" >Confirm</button>
             <button type="submit" class="btn btn-default close-controls">Close</button>
           </form>
         </div>
@@ -74,34 +74,18 @@
   setTimeout(function(){
     $('.calendar li').click(function(){
       $(this).toggleClass('active');
-      $('.log-controls:first').addClass('active');
-      console.log('Fired')
+      $(this).parents('.row').find('.log-controls').addClass('active');
     });
-    $('.confirm-days').click(function(){
-      $('.calendar li.active').removeClass('active').addClass('holiday');
-    })
-
-    function confirmDays(type) {
-      $('.confirm-days').click(function(){
-        console.log('I am in');
-        $('.calendar li.active').removeClass('active').addClass(type);
-      })
-    }
+//
     $('.close-controls').click(function(){
       $('.calendar li.active').removeClass('active');
       $(this).parents('.log-controls').removeClass('active')
+    });
+    $('.confirm-days').click(function(){
+      var type = $(this).parents('.form-inline').find('#log_type option:selected').val();
+      console.log('Selected' + type);
+      $(this).parents('.data-row').find('.calendar li.active').removeClass('active').addClass(type);
     })
   }, 100);
-
-  var type = function getType(){
-
-  };
-
-  function confirmDays(type) {
-    $('.confirm-days').click(function(){
-      console.log('I am in');
-      $('.calendar li.active').removeClass('active').addClass(type);
-    })
-  }
 
 </script>
