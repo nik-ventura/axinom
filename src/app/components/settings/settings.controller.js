@@ -8,6 +8,8 @@
   /** @ngInject */
   function SettingsController($scope) {
     var vm = this;
+
+    // User projects list
     $scope.projects = [
         {"name": "Lufthanza"},
         {"name": "Microsoft"},
@@ -17,13 +19,14 @@
         {"name": "PRSO"},
         {"name": "Time"}
     ];
-      $scope.translate = function(value) {
-          return value + ':' + '00';
-      };
+
+    // Email preferences settings
+    $scope.translate = function(value) {
+      return value + ':' + '00';
+    };
     $scope.emailTime = 16;
 
-   // Treeview  projects list
-
+   // Treeview
       $(function() {
           var alternateData = [
               {

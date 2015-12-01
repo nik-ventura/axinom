@@ -55,6 +55,7 @@
                 return d.value;
             });
 
+
         // update logic
         var x = d3.scale.linear()
             .domain([0, _chartWidth])
@@ -76,6 +77,9 @@
                 })
                 .style("height", function(d) {
                     return Math.max(0, d.dy) + "px";
+                })
+                .attr('title', function(d) {
+                    return d.name + " " + d.time + "%"
                 })
                 .attr("class", function(d) {
                     return "cell " + d.heat;
@@ -101,7 +105,12 @@
                         }
                     })
                     .text(function(d) {
-                        return d.name ? d.name : "";
+                        if (d.name && d.time > 0) {
+                            return d.name + " " + d.time + "%"   ;
+                        }
+                        else {
+                            return d.name
+                        }
                     });
                 cellSelection.append("div")
                     .attr("class", function(d) {
@@ -164,21 +173,21 @@
                     return d.parent ? name(d.parent) + " → " + d.name : d.name;
                 }
             }
+            $('html').on('keydown', function(event) {
 
-        });
-        $('html').on('keydown', function(event) {
-
-            if (!$(event.target).is('input')) {
-                console.log(event.which);
-                event.preventDefault();
-                if (event.which == 8) {
-                    //                    $route.reload();
+                if (!$(event.target).is('input')) {
+                    console.log(event.which);
+                    event.preventDefault();
+                    if (event.which == 8) {
+                        //                    $route.reload();
                     location.reload();
-                    //                    zoomout(d);
-                    return false;
+                        return false;
+                    }
                 }
-            }
+            });
+
         });
+
 
 
     }

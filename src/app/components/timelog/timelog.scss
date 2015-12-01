@@ -1,0 +1,78 @@
+@for $i from 1 to 10 {
+  .project-log:nth-child(#{$i}) { animation-delay: $i * 0.10s; }
+}
+.project-log {
+  background-color: #f2f2f2;
+  padding: 0.5em 1.2em;
+  margin: 0.2em 1em;
+  position: relative;
+  z-index: 1;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+  transition: all 200ms ease-in-out;
+  &:hover {
+    background: #e8e8e8;
+  }
+  &:last-of-type {
+    background: #ddd;
+  }
+  .project-name {
+    font-size: 1.2em;
+    color: #6B6A6A;
+    margin-top: 18px;
+    display: inline-block;
+  }
+}
+
+table {
+  margin-left: 10px!important;
+}
+td, th {
+  padding: 0.2em;
+}
+.well {
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 25px -10px #000;
+}
+
+button.btn {
+  padding: 0.6em 0.7em;
+  color: #999999;
+  background: transparent;
+  font-weight: 700;
+  margin: 0.2em;
+  border-width: 1px;
+  border-radius:2px;
+  &.active {
+    background: #0db9f0;
+    border-color:#0db9f0;
+    color: #fff;
+  }
+  &.btn-info, &.btn-info:hover, &.btn-info:focus {
+    background: #fff;
+    border: 1px solid #0db9f0!important;
+    color: #0db9f0;
+    outline: none;
+  }
+  &.btn-default {
+    border:  none;
+  }
+  .text-info {
+    color: #0db9f0;
+    font-weight: 700;
+    font-size: 1.6em;
+  }
+}
+.logged button.btn {
+  background-color: limegreen;
+  color:#f1f1f1;
+}
+.missed button.btn {
+  background-color: $brand-danger;
+  color:#f1f1f1;
+}

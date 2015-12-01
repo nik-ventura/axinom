@@ -1,0 +1,99 @@
+.calendar {
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 0px;
+  margin: 0.5em 0;
+  li {
+    list-style: none;
+    display: inline-block;
+    padding: 5px;
+    min-width: 26px;
+    margin: 0 2px 0 0;
+    background: #fff;
+    text-align: center;
+    cursor: pointer;
+    border:1px solid #fff;
+    &:hover {
+      border:1px solid #ddd;
+      background: #ccc ;
+    }
+    &.sick-day, &.sick-day:hover {
+      background: $brand-danger;
+      color: #fff;
+    }
+    &.holiday, &.holiday:hover {
+      background: $brand-primary;
+      color: #fff;
+    }
+    &.active, &.active:hover {
+      background: $brand-success;
+      color: #fff;
+    }
+  }
+}
+.employee-name {
+  padding: 1em 1em 1em 2em;
+  background: #f1f1f1;
+}
+.search-employee {
+  padding: 1em;
+  background: #ddd;
+  margin-bottom: 0;
+}
+.office-data {
+  padding: 0;
+  margin: 0 2em;
+  background: rgba(255,255,255,1);
+  .month {
+    background: #f1f1f1;
+    padding: 0.8em 0;
+    font-size: 2em;
+    border-bottom:1px solid #ddd;
+    i {
+      font-size: 0.7em;
+      color: #333;
+      &:first-child {
+        margin-right: 15px;
+      }
+      &:last-child {
+        margin-left: 15px;
+      }
+    }
+  }
+}
+.data-row {
+  border-bottom:1px solid #ccc;
+  margin: 0;
+  &.active {
+    //margin: -1em;
+    background: #fff;
+    box-shadow: 1px 1px 10px #ccc;
+  }
+  &:hover {
+    background: #f1f1f1;
+  }
+}
+.log-controls {
+  display: none;
+  &.active {
+    display: block;
+  }
+  .btn.btn-primary {
+    background: $brand-success;
+    border:none;
+  }
+  .btn.btn-default {
+    background: #666 ;
+  }
+  .form-inline {
+    padding: 1em;
+  }
+  .btn {
+    background: $brand-success;
+    color: #fff;
+    border-radius: 3px;
+    padding: 0.5em;
+  }
+}

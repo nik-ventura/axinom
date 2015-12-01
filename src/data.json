@@ -1,6 +1,6 @@
 {
     "name": "Units",
-    "heat": "grey",
+    "heat": "blue",
     "value": 10,
     "children": [{
         "name": "Designers Unit",
@@ -100,14 +100,14 @@
         "time": "",
         "children": [{
             "name": "Sylvester Stallone",
-            "time": "100",
+            "time": 100,
             "value": 40,
             "heat": "green"
         }, {
             "name": "Arnold Schwarzenegger",
             "time": "100",
             "value": 50,
-            "heat": "green",
+            "heat": "blue",
             "id": 1
         }, {
             "name": "Bruce Willis",

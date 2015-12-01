@@ -1,0 +1,64 @@
+.settings {
+  .slider {
+    padding: 0.5em 2em;
+    background: #f1f1f1;
+    margin: 0 2em;
+    rzslider span.rz-bubble {
+      bottom: 18px;
+      color: #0DB9F0;
+    }
+  }
+  rzslider span.rz-bar.rz-selection {
+    background: #fff;
+  }
+  .email-time {
+    span {
+      color: $brand-primary;
+      font-weight:$font-bold;
+      border-bottom:2px solid;
+    }
+  }
+  rzslider span.rz-bar-wrapper {
+    margin-top: -16px;
+  }
+  rzslider span.rz-pointer {
+    top:-14px;
+  }
+}
+.add-project {
+  > .row {
+    padding: 0 2em;
+  }
+}
+// Treeview overwrites
+.node-selected:after {
+  content: "→";
+  position: absolute;
+  right: 10px;
+  font-size: 1.5em;
+  top: 0.3em;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}
+.list-group-item.node-treeview-expandible.node-selected {
+  background: $brand-primary!important;
+}
+
+.project-item {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+  font-size: 1.2em;
+  padding: 0.4em;
+  border-bottom: 1px solid #ECEBEB;
+}
+@for $i from 1 to 10 {
+  .project-item:nth-child(#{$i}) { animation-delay: $i * 0.25s; }
+}
