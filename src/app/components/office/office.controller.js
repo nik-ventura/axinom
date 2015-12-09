@@ -8,6 +8,7 @@
   /** @ngInject */
   function OfficeController( toastr, $scope) {
     var vm = this;
+      vm.dateRange = false;
       $scope.selectDate = false;
       $scope.sickDateSet = false;
       $scope.openControls = false;

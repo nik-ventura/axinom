@@ -8,7 +8,7 @@
   li {
     list-style: none;
     display: inline-block;
-    padding: 5px;
+    padding: 3px 5px 1px 5px;
     min-width: 26px;
     margin: 0 2px 0 0;
     background: #fff;
@@ -18,20 +18,45 @@
     &:hover {
       border:1px solid #ddd;
       background: #ccc ;
+
     }
     &.sick-day, &.sick-day:hover {
-      background: $brand-danger;
-      color: #fff;
+      border:1px solid $brand-danger;
+      color: $brand-danger;
+      border-bottom:4px solid;
     }
     &.holiday, &.holiday:hover {
-      background: $brand-primary;
-      color: #fff;
+      border:1px solid $brand-primary;
+      color: $brand-primary;
+      border-bottom:4px solid;
+    }
+    &.army, &.army:hover {
+      border:1px solid olive;
+      color: olive;
+      border-bottom:4px solid;
+    }
+    &.pregnancy, &.pregnancy:hover {
+      border:1px solid pink;
+      color: pink;
+      border-bottom:4px solid;
     }
     &.active, &.active:hover {
+      border:1px solid $brand-success;
       background: $brand-success;
       color: #fff;
     }
+
   }
+  &.dates-disabled {
+    li {
+      opacity: 0.2;
+    }
+  }
+}
+.date-range {
+  padding: 3px;
+  border: 1px solid;
+  font-size: 0.9em;
 }
 .employee-name {
   padding: 1em 1em 1em 2em;
@@ -47,18 +72,53 @@
   margin: 0 2em;
   background: rgba(255,255,255,1);
   .month {
+    position: relative;
     background: #f1f1f1;
     padding: 0.8em 0;
     font-size: 2em;
     border-bottom:1px solid #ddd;
+    color: #666;
     i {
       font-size: 0.7em;
-      color: #333;
+      color: #666;
       &:first-child {
         margin-right: 15px;
       }
       &:last-child {
         margin-left: 15px;
+      }
+    }
+    .color-legend {
+      position: absolute;
+      top:0.6em; right:0.5em;
+      li {
+        list-style: none;
+        margin-bottom: 0;
+        display: inline-block;
+      }
+      p {
+        margin: 0;
+        margin-left: 0.3em;
+        display: inline-block;
+        font-size: 0.5em;
+      }
+      span {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-bottom: -3px;
+        &.sick-day {
+           background: $brand-danger;
+        }
+        &.holiday {
+          background: $brand-primary;
+        }
+        &.army {
+          background: olive;
+        }
+        &.pregnancy {
+          background: pink;
+        }
       }
     }
   }
@@ -87,8 +147,18 @@
   .btn.btn-default {
     background: #666 ;
   }
-  .form-inline {
+  .office-form {
     padding: 1em;
+    border: 1px solid #ccc;
+    margin: 0.5em;
+    background: #fff;
+    button {
+      margin-top: 1.7em;
+    }
+    .form-control.date-picker {
+      height: 34px;
+      border: 1px solid #ccc;
+    }
   }
   .btn {
     background: $brand-success;

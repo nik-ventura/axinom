@@ -20,6 +20,20 @@
         {"name": "Time"}
     ];
 
+      setTimeout(function(){
+          $('.treeview li').on('click', function(){
+              $('.treeview li').removeClass('node-selected');
+              $(this).addClass('node-selected');
+              vm.getSelectedItem = $(this).find('.node-selected').text();
+              vm.selectedObj = {"name":  vm.getSelectedItem } ;
+              console.log(vm.selectedObj);
+              $scope.$apply(function() {
+                  $scope.projects = $scope.projects.concat(vm.selectedObj) ;
+                  console.log($scope.projects)
+              });
+
+          });
+      },1);
     // Email preferences settings
     $scope.translate = function(value) {
       return value + ':' + '00';
