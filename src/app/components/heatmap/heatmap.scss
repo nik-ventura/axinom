@@ -50,11 +50,11 @@
   a {
     text-decoration: none;
     font-size: 1.5em;
-    color: #fff;
+    color: #68655f;
     display: inline-block;
     border-radius: 0 30px 30px 0;
-    background: #00ADEE;
-    padding: .1em 1.4em;
+    background: #fff;
+    padding: .1em 1.2em;
     margin-top: 1.1em;
     margin-left: -.2em;
     z-index: 100;
@@ -64,7 +64,7 @@
     i {
       position: absolute;
       top: 0.34em;
-      left: 1.1em;
+      left: 0.9em;
     }
   }
 }
@@ -72,10 +72,10 @@
   .btn-group {
     position: absolute;
     top: 0.43em;
-    width: 20%;
-    right: 2.5em;
-    //display: table;
+    width: 200px;
+    right: 50%;
     z-index: 10;
+    margin-right: -100px;
   }
 }
 .heat-log {
@@ -109,7 +109,7 @@
 }
 .btn-group {
   .btn {
-    padding: 0.2em 0;
+    padding: 0.4em 0;
     width: 50%;
   }
   &.radio {
@@ -127,7 +127,7 @@
 .cell  {
   position: absolute;
   shape-rendering: crispEdges;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #5D5C5A;
 }
 
 .grandparent{
@@ -151,31 +151,32 @@
 }
 
 .red {
-  background-color: #f16c54;
+  background-color: $brand-danger;
 }
 .grey {
   background: #5D5C5A;
+  display: none;
 }
 
 .green {
-  background-color: #8bc53f;
+  background-color: $brand-success;
 }
 
 .blue {
-  background-color: #00adee;
+  background-color: $brand-primary;
 
 }
 
 .red:hover {
-  background-color: #f16054;
+  background-color: lighten($brand-danger, 5);;
 }
 
 .green:hover {
-  background-color: #4bc53f;
+  background-color: lighten($brand-success, 5);
 }
 
 .blue:hover {
-  background-color: #009dee;
+  background-color: lighten($brand-primary, 5);
 
 }
 
@@ -194,4 +195,18 @@
   font-size: 18px;
   padding: 10px;
   position:absolute ;
+  text-transform: uppercase;
+}
+.calendar-table {
+  table {
+    td, th {
+      color:#9B9B9B;
+    }
+  }
+}
+.range_inputs {
+  button.btn {
+    color: inherit!important;
+    padding: 0.3em 2em;
+  }
 }

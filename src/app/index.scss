@@ -11,12 +11,16 @@ $font-family-sans-serif: 'Roboto Condensed', sans-serif!default;
 $border-radius-base:        4px !default;
 $border-radius-large:       50px !default;
 $border-radius-small:       3px !default;
-$brand-primary:         #00adee!default; // #337ab7
-$brand-success:         #8bc53f !default;
+$brand-primary:         #2f8bb1!default; // #337ab7
+$brand-success:         #69aa5b !default;
 $brand-info:            #5bc0de !default;
 $brand-warning:         #f0ad4e !default;
-$brand-danger:          #f16c54 !default;
+$brand-danger:          #d56966 !default;
 $grid-gutter-width:         10px !default;
+$color-olive: #b2e6ad;
+$color-yellow: #ffbc1a;
+$color-magenta: #41b7bb;
+$color-pink: #bd65b0;
 
 $font-bold:700;
 $font-regular:400;
@@ -55,11 +59,35 @@ body {
   padding: 0;
 }
 
+.heat-log-item {
+  h1 {
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 0;
+  }
+  p {
+    color: #EEEEEE;
+    font-size: 1.2em;
+  }
+}
+.today-date {
+  font-size: 2em;
+  margin: 1em 0;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  .day {
+    margin: 0 0.3em;
+    padding: 0.4em 0.5em;
+    background: rgba(82, 82, 82, 0.88);
+    border-radius: 100px;
+    font-size: 1.5em;
+  }
+}
 // General style
 .box {
-  background: #fff;
-  border:1px solid #ccc;
-  box-shadow: 2px 2px 25px -10px #000;
   padding: 1em 0;
   margin-bottom: 2em;
   .time-period {
@@ -70,7 +98,7 @@ body {
   }
   .header {
     position: relative;
-    padding: 1em 0 2em 2em;
+    padding: 0 0 2em 2em;
   }
   .footer {
     margin: 0;
@@ -84,21 +112,55 @@ body {
     color:#8a8a8a;
   }
   h1 {
-    font-size: 30px;
+    font-size: 1.5em;
+    color:#fff;
     font-weight: $font-bold;
     text-transform: uppercase;
 
   }
   h2 {
-    font-size: 21px;
-    font-weight: $font-regular;
+    font-size: 1.2em;
+    font-weight: 300;
     text-transform: none;
+    margin-top: 0.8em;
+    color: #ccc;
 
   }
   &.heat-log {
+
     .header {
       padding-bottom: 0;
     }
+  }
+}
+.heat-log-projects {
+  display: inline;
+  width: 33.3333%;
+  .heat-log h1 {
+    text-align: center;
+    font-size: 1em;
+    color: #fff;
+    margin-bottom: 0.5em;
+  }
+  .heat-btn {
+    width: auto;
+    padding: 2em;
+  }
+  .project-header span:before,
+  .project-header span:after {
+    content: "";
+    position: absolute;
+    border-top: 1px solid white;
+    top: 5px;
+    width: 300px;
+  }
+  .project-header span:before {
+    right: 85%;
+    margin-right: 0;
+  }
+  .project-header span:after {
+    left: 85%;
+    margin-left: 0;
   }
 }
 
@@ -117,7 +179,7 @@ body {
 }
 .heat-btn {
   position: relative;
-  display: table-cell;
+  display: inline-block;
   padding: 0 1em 0 0;
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -125,48 +187,35 @@ body {
   animation-fill-mode: both;
   -webkit-animation-name: zoomIn;
   animation-name: zoomIn;
-  width: 33.33333%;
-  span {
-    display: block;
-    padding: 0.8em 1.5em 0.8em 1.5em;
-    background-color: #ccc;
-    border-radius: 100px;
-    text-transform: uppercase;
-    color: #fff;
-    font-weight: 300;
-    font-size: 1.2em;
-    text-align: left;
-    line-height: 1.1em;
-    box-shadow: 2px 2px 25px -10px #000;
-  }
+  width: 25%;
+  margin: 0 1% 0 0;
+  padding: 1.2em 1.5em 1.2em 1.5em;
+  border-radius: 100px;
+  display: inline-block;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 300;
+  font-size: 1em;
+  text-align: left;
+  line-height: 1.1em;
+  box-shadow: 2px 2px 25px -10px #000;
+  text-align: center;
   &.blue-level {
-    span {
       background: $brand-primary ;
-    }
     &.selected {
-      span {
         background:$brand-primary url("../assets/images/check-mark.png") no-repeat top right;
-      }
     }
   }
   &.green-level {
-    span {
       background: $brand-success;
-    }
     &.selected {
-      span {
         background:$brand-success url("../assets/images/check-mark.png") no-repeat top right;
-      }
     }
   }
   &.red-level {
-    span {
       background: $brand-danger;
-    }
     &.selected {
-      span {
         background:$brand-danger url("../assets/images/check-mark.png") no-repeat top right;
-      }
     }
   }
   &:hover, &:active, &:focus {
@@ -187,9 +236,9 @@ body {
     border: 2px solid #fff;
     height: 36px;
     color: #333;
-    border-radius: 3px;
-    border: 1px solid #FFF;
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0.58);
+    border-radius: 50px;
+    border: 2px solid #fff;
 
   }
 }
@@ -200,7 +249,7 @@ body {
     margin: 38px 0 15px 0;
   }
   rzslider span.rz-bubble {
-    color: $brand-primary;
+    color: #fff;
   }
 }
 rzslider span.rz-bar {
@@ -215,10 +264,23 @@ rzslider span.rz-bar-wrapper {
 
 rzslider span.rz-pointer {
   top: -26px;
+  background-color: $color-olive;
+}
+rzslider span.rz-pointer.rz-active:after {
+  background-color: #68655f;
+}
+rzslider span.rz-pointer:after {
+  background-color: #fff;
 }
 rzslider span.rz-bubble {
   bottom: 29px;
   color: #fff;
+}
+rzslider span.rz-bar.rz-selection {
+  background-color: $color-olive;
+}
+rzslider span.rz-bar {
+  height: 2px;
 }
 
 // Buttons
@@ -227,18 +289,19 @@ rzslider span.rz-bubble {
   border: 2px solid;
   padding: 1em 1em;
   text-transform: uppercase;
-  padding: 0.7em 1.5em;
+  padding: 1em 1.5em;
+  font-size: 0.8em;
   color: #fff;
   background: transparent;
   font-weight: $font-bold;
   &:hover, &:active {
-    background-color: #fff;
+    background-color: transparent;
     border-color: #fff;
     color:#333;
   }
   &.btn-ico {
     color: $brand-primary;
-    font-size: 34px;
+    font-size: 34px ;
     padding: 0;
     border: none;
   }
@@ -249,27 +312,28 @@ rzslider span.rz-bubble {
   }
 }
 .btn-primary {
-  border-color: $brand-primary;
-  background: $brand-primary;
+  background: #fff;
+  color: #64615B;
+  border-color: #fff;
   &.btn-filter {
     margin-top: 25px;
-    margin-left: -21px;
+    margin-left: -33px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    padding: 0.52em 1em;
+    padding: 0.92em 1em;
 
   }
   &:hover, &:active, &:focus {
-    background: darken($brand-primary, 5);
-    border-color: darken($brand-primary, 5);
-    color: #fff;
+    background: #fff;
+    color: #64615B;
 
   }
 }
 .btn-secondary {
-  border-color: #8a8a8a;
-  color: #8a8a8a;
+  border-color: #fff;
+  color: #fff;
 }
+
 
 // Chosen
 .chosen-container {
@@ -342,7 +406,12 @@ rzslider span.rz-bubble {
     }
   }
 }
-
+.chosen-container-multi .chosen-choices {
+  height: 36px;
+  background-color: rgba(255, 255, 255, 0.58);
+  border-radius: 50px;
+  border: 2px solid #fff;
+}
 // Range datepicker styling
 .range_inputs {
   .btn {

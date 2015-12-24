@@ -2,7 +2,7 @@
   color: white;
 }
 .navbar {
-  padding: 1em;
+  padding: 0.3em;
   background: rgba(82,82,82,0.88);
 }
 .navbar-nav  {
@@ -12,21 +12,22 @@
     margin-bottom: 0.5em;
     a {
       border-radius: $border-radius-large;
-      border: 2px solid #fff;
       padding: 1em 1em;
       text-transform: uppercase;
       padding: 0.7em 1.5em;
       color: #fff;
       letter-spacing: 0.1em;
       font-weight: $font-bold;
+      font-size: 0.8em;
       &:hover, &:active, &:focus {
         background: transparent;
       }
     }
     &.active {
       a {
-        border-color: $brand-primary;
-        background: $brand-primary;
+        border-color: rgba(0,0,0,0.6);
+        background: #fff;
+        color:#64615B;
       }
     }
   }

@@ -8,7 +8,7 @@
   /** @ngInject */
   function HeatlogController($timeout, toastr, $scope) {
     var vm = this;
-
+    $scope.date = new Date();
 
   }
 })();

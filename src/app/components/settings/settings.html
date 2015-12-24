@@ -3,14 +3,14 @@
     <div class="row">
 
       <div class="col-md-8">
-        <div class="box animated fadeInLeft bottom20">
+        <div class="box animated fadeInLeft bottom20 projects-settings">
           <div class="header">
             <h1>Manage your projects</h1>
           </div>
           <div class="add-project animated">
             <div class="row">
 
-              <div class="col-md-6 col-sm-6">
+              <div class="col-md-7 col-sm-7">
                 <h2 class="bottom20">All Projects</h2>
                 <div class="form-group">
                   <label for="input-expand-node" class="sr-only">Search Projects:</label>
@@ -19,19 +19,14 @@
                 <div id="treeview-expandible"></div>
               </div>
 
-              <div class="col-md-6 col-sm-6 p-left40">
-                <h2 class="bottom20">My Projects</h2>
+              <div class="col-md-5 col-sm-5 p-left40">
+                <h2 class="bottom10">My Projects</h2>
+                <p>Currently active projects for my daily time logging</p>
                 <div class="row project-item" data-ng-repeat="project in projects">
                   <div class="col-md-12 ">{{project.name}} <a class="pull-right" href=""><i class="icon-close"></i></a></div>
                 </div>
               </div>
 
-            </div>
-          </div>
-
-          <div class="clearfix" style="margin-top: 1em">
-            <div class="col-md-12 text-right">
-              <a class="btn btn-primary">Save</a>
             </div>
           </div>
         </div>
@@ -47,8 +42,8 @@
             <rzslider rz-slider-model="emailTime" rz-slider-step="1" rz-slider-floor="0" rz-slider-ceil="24"  rz-slider-translate="translate" rz-slider-always-show-bar="true" role="slider"></rzslider>
           </div>
           <div class="clearfix footer">
-            <div class="col-md-12 text-right">
-              <a class="btn btn-primary">Save</a>
+            <div class="col-md-12 text-center">
+              <a class="btn btn-primary">Yes, please</a>
             </div>
           </div>
         </div>

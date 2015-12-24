@@ -19,18 +19,26 @@
         {"name": "PRSO"},
         {"name": "Time"}
     ];
-
       setTimeout(function(){
-          $('.treeview li').on('click', function(){
-              $('.treeview li').removeClass('node-selected');
-              $(this).addClass('node-selected');
+          $('.treeview').on('click', function(){
+              vm.getSelectedItem = "";
               vm.getSelectedItem = $(this).find('.node-selected').text();
-              vm.selectedObj = {"name":  vm.getSelectedItem } ;
-              console.log(vm.selectedObj);
-              $scope.$apply(function() {
-                  $scope.projects = $scope.projects.concat(vm.selectedObj) ;
-                  console.log($scope.projects)
-              });
+              $(this).find('.node-selected').removeClass('node-selected');
+              if (vm.getSelectedItem !== "")  {
+                  vm.selectedObj = "";
+                  console.log('I am not empty');
+                  vm.selectedObj = {"name":  vm.getSelectedItem } ;
+                  console.log(vm.selectedObj);
+                  $scope.$apply(function() {
+                      $scope.projects = $scope.projects.concat(vm.selectedObj);
+//                      console.log(vm.selectedObj);
+                      vm.getSelectedItem = "";
+                  });
+              }
+              else {
+                  console.log('I am empty');
+              }
+
 
           });
       },1);

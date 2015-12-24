@@ -2,57 +2,56 @@
   <div class="container">
 
     <div class="row">
-      <div class="col-md-5  col-sm-6 col-md-offset-2">
+      <div class="col-sm-6 col-sm-offset-1">
         <div class="time-log box animated fadeInLeft">
           <div class="header">
-            <h1>My Projects</h1>
             <h2>Log your project time</h2>
           </div>
 
           <div class="project-log">
             <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-4">
               <span class="project-name">
                 Project One
               </span>
               </div>
-              <div class="col-md-7">
+              <div class="col-md-8">
                 <rzslider rz-slider-model="timeLog" rz-slider-on-change="change(this)" rz-slider-step="5" rz-slider-floor="0" rz-slider-ceil="100" rz-slider-translate="translate" rz-slider-always-show-bar="true" role="slider" ></rzslider>
               </div>
             </div>
           </div>
           <div class="project-log">
             <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-4">
               <span class="project-name">
                 Project Two
               </span>
               </div>
-              <div class="col-md-7">
+              <div class="col-md-8">
                 <rzslider rz-slider-model="timeLog2" rz-slider-on-change="change(this)" rz-slider-step="5" rz-slider-floor="0" rz-slider-ceil="100" rz-slider-translate="translate" rz-slider-always-show-bar="true" role="slider"></rzslider>
               </div>
             </div>
           </div>
           <div class="project-log">
             <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-4">
               <span class="project-name">
                 Project Three
               </span>
               </div>
-              <div class="col-md-7">
+              <div class="col-md-8">
                 <rzslider rz-slider-model="timeLog3" rz-slider-on-change="change(this)" rz-slider-step="5" rz-slider-floor="0" rz-slider-ceil="100" rz-slider-translate="translate" rz-slider-always-show-bar="true" role="slider"></rzslider>
               </div>
             </div>
           </div>
           <div class="project-log">
             <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-4">
               <span class="project-name">
                 Other
               </span>
               </div>
-              <div class="col-md-7">
+              <div class="col-md-8">
                 <rzslider rz-slider-model="timeLog4" rz-slider-on-change="change(this)" rz-slider-step="5" rz-slider-floor="0" rz-slider-ceil="100" rz-slider-translate="translate" rz-slider-always-show-bar="true" role="slider"></rzslider>
               </div>
             </div>
@@ -68,8 +67,18 @@
         </div>
       </div>
 
-      <div class="col-md-4 col-sm-6 animated fadeInRight">
+      <div class="col-sm-5 animated fadeInRight">
         <uib-datepicker ng-model="dt" min-date="minDate" starting-day="1" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></uib-datepicker>
+        <ul class="timelog-legend">
+          <li>
+            <span class="legend-logged"></span>
+            Logged
+          </li>
+          <li>
+            <span class="legend-missing"></span>
+            Missing
+          </li>
+        </ul>
       </div>
     </div>
   </div>

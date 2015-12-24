@@ -1,11 +1,10 @@
 .settings {
   .slider {
-    padding: 0.5em 2em;
-    background: #f1f1f1;
+    padding: 0;
     margin: 0 2em;
     rzslider span.rz-bubble {
       bottom: 18px;
-      color: #0DB9F0;
+      color: #ccc;
     }
   }
   rzslider span.rz-bar.rz-selection {
@@ -13,9 +12,10 @@
   }
   .email-time {
     span {
-      color: $brand-primary;
-      font-weight:$font-bold;
-      border-bottom:2px solid;
+      color: #fff;
+      font-weight: $font-bold;
+      border-bottom: 2px solid;
+      font-size: 1.2em;
     }
   }
   rzslider span.rz-bar-wrapper {
@@ -28,6 +28,32 @@
 .add-project {
   > .row {
     padding: 0 2em;
+  }
+  p {
+    color:#ccc;
+    padding: 0;
+  }
+}
+.projects-settings {
+  background: rgba(255, 255, 255, 0.18);
+  margin-top: -2em;
+  h1 {
+    color: #fff;
+    margin: 2em 0 0 0;
+    font-size: 1.5em;
+  }
+  .header {
+    padding-bottom: 1em;
+  }
+  h2 {
+    font-size: 1.2em;
+    color: #fff;
+  }
+  .form-control {
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.58);
+    border-radius: 50px;
+    border:2px solid #fff;
   }
 }
 // Treeview overwrites
@@ -47,6 +73,16 @@
 .list-group-item.node-treeview-expandible.node-selected {
   background: $brand-primary!important;
 }
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: transparent;
+  border:none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.57);
+  color: #fff;
+}
 
 .project-item {
   -webkit-animation-duration: 1s;
@@ -57,7 +93,15 @@
   animation-name: fadeInUp;
   font-size: 1.2em;
   padding: 0.4em;
-  border-bottom: 1px solid #ECEBEB;
+  border:none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.57);
+  color:#fff;
+  a {
+    color: #fff;
+  }
+}
+.node-treeview-expandible:not(.node-disabled):hover {
+  background-color: rgba(255, 255, 255, 0.25)!important;
 }
 @for $i from 1 to 10 {
   .project-item:nth-child(#{$i}) { animation-delay: $i * 0.25s; }

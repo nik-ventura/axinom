@@ -4,41 +4,36 @@
   -webkit-margin-start: 0px;
   -webkit-margin-end: 0px;
   -webkit-padding-start: 0px;
-  margin: 0.5em 0;
+  margin: 0.8em 0;
   li {
     list-style: none;
     display: inline-block;
-    padding: 3px 5px 1px 5px;
-    min-width: 26px;
-    margin: 0 2px 0 0;
-    background: #fff;
+    padding: 3px 5px 3px 5px;
+    min-width: 25px;
     text-align: center;
     cursor: pointer;
-    border:1px solid #fff;
+    color:#fff;
+    border-radius: 20px;
     &:hover {
-      border:1px solid #ddd;
-      background: #ccc ;
+      background: #fff ;
+      color:#333;
 
     }
     &.sick-day, &.sick-day:hover {
-      border:1px solid $brand-danger;
-      color: $brand-danger;
-      border-bottom:4px solid;
+     background: $color-yellow;
+     color: #fff;
     }
     &.holiday, &.holiday:hover {
-      border:1px solid $brand-primary;
-      color: $brand-primary;
-      border-bottom:4px solid;
+      background: $color-magenta;
+      color: #fff;
     }
     &.army, &.army:hover {
-      border:1px solid olive;
-      color: olive;
-      border-bottom:4px solid;
+      background: $color-olive;
+      color: #fff;
     }
     &.pregnancy, &.pregnancy:hover {
-      border:1px solid pink;
-      color: pink;
-      border-bottom:4px solid;
+      background: $color-pink;
+      color: #fff;
     }
     &.active, &.active:hover {
       border:1px solid $brand-success;
@@ -60,27 +55,29 @@
 }
 .employee-name {
   padding: 1em 1em 1em 2em;
-  background: #f1f1f1;
+  color:#fff;
 }
 .search-employee {
   padding: 1em;
-  background: #ddd;
   margin-bottom: 0;
+  .form-control {
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.58);
+    border-radius: 50px;
+    border: 2px solid #fff;
+  }
 }
 .office-data {
   padding: 0;
   margin: 0 2em;
-  background: rgba(255,255,255,1);
   .month {
     position: relative;
-    background: #f1f1f1;
     padding: 0.8em 0;
     font-size: 2em;
-    border-bottom:1px solid #ddd;
-    color: #666;
+    color: #fff;
     i {
       font-size: 0.7em;
-      color: #666;
+      color: #fff;
       &:first-child {
         margin-right: 15px;
       }
@@ -88,43 +85,46 @@
         margin-left: 15px;
       }
     }
-    .color-legend {
-      position: absolute;
-      top:0.6em; right:0.5em;
-      li {
-        list-style: none;
-        margin-bottom: 0;
-        display: inline-block;
-      }
-      p {
-        margin: 0;
-        margin-left: 0.3em;
-        display: inline-block;
-        font-size: 0.5em;
-      }
-      span {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        margin-bottom: -3px;
-        &.sick-day {
-           background: $brand-danger;
-        }
-        &.holiday {
-          background: $brand-primary;
-        }
-        &.army {
-          background: olive;
-        }
-        &.pregnancy {
-          background: pink;
-        }
-      }
+  }
+}
+.color-legend {
+  -webkit-padding-start: 0;
+  margin: 1em 0;
+  li {
+    list-style: none;
+    margin-bottom: 1em;
+    display: inline-block;
+  }
+  p {
+    margin: 0;
+    margin-left: 0.3em;
+    display: inline-block;
+    font-size: 0.8em;
+    color: #fff;
+  }
+  span {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-bottom: -3px;
+    border-radius: 20px;
+    &.sick-day {
+      background: $color-yellow;
+    }
+    &.holiday {
+      background: $color-magenta;
+    }
+    &.army {
+      background: olive;
+    }
+    &.pregnancy {
+      background: $color-pink;
     }
   }
 }
+
 .data-row {
-  border-bottom:1px solid #ccc;
+  border-bottom:1px solid rgba(255, 255, 255, 0.4);
   margin: 0;
   &.active {
     //margin: -1em;
@@ -132,7 +132,7 @@
     box-shadow: 1px 1px 10px #ccc;
   }
   &:hover {
-    background: #f1f1f1;
+    background: rgba(255, 255, 255, 0.25);
   }
 }
 .log-controls {
@@ -140,30 +140,21 @@
   &.active {
     display: block;
   }
-  .btn.btn-primary {
-    background: $brand-success;
-    border:none;
-  }
-  .btn.btn-default {
-    background: #666 ;
-  }
   .office-form {
     padding: 1em;
-    border: 1px solid #ccc;
     margin: 0.5em;
-    background: #fff;
+    color:#fff;
+    .form-control {
+      height: 36px;
+      background-color: rgba(255, 255, 255, 0.58);
+      border-radius: 50px;
+      border: 2px solid #fff;
+    }
     button {
       margin-top: 1.7em;
     }
     .form-control.date-picker {
       height: 34px;
-      border: 1px solid #ccc;
     }
-  }
-  .btn {
-    background: $brand-success;
-    color: #fff;
-    border-radius: 3px;
-    padding: 0.5em;
   }
 }

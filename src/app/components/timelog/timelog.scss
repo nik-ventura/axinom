@@ -2,9 +2,8 @@
   .project-log:nth-child(#{$i}) { animation-delay: $i * 0.10s; }
 }
 .project-log {
-  background-color: #f2f2f2;
-  padding: 0.5em 1.2em;
-  margin: 0.2em 1em;
+  padding: 0.2em 1.2em;
+  margin: 0 1em;
   position: relative;
   z-index: 1;
   -webkit-animation-duration: 1s;
@@ -15,19 +14,45 @@
   animation-name: fadeInUp;
   transition: all 200ms ease-in-out;
   &:hover {
-    background: #e8e8e8;
+    background: rgba(0,0,0,0.2);
   }
   &:last-of-type {
     background: #ddd;
   }
   .project-name {
     font-size: 1.2em;
-    color: #6B6A6A;
+    color: #f2f2f2;
     margin-top: 18px;
     display: inline-block;
   }
 }
-
+.time-log {
+  h2 {
+    color: #f2f2f2;
+  }
+}
+.timelog-legend {
+  li {
+    display: inline-block;
+    margin-right: 1em;
+  }
+  span {
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    border-radius: 100px;
+    margin-bottom: -8px;
+    margin-right: 1em;
+    &.legend-logged {
+      background: #a7a8ab;
+    }
+    &.legend-missing {
+      background:$color-olive ;
+    }
+  }
+  list-style: none;
+  color: #f1f1f1;
+}
 table {
   margin-left: 10px!important;
 }
@@ -42,7 +67,7 @@ td, th {
 
 button.btn {
   padding: 0.6em 0.7em;
-  color: #999999;
+  color: #a7a8ab;
   background: transparent;
   font-weight: 700;
   margin: 0.2em;
@@ -55,7 +80,7 @@ button.btn {
   }
   &.btn-info, &.btn-info:hover, &.btn-info:focus {
     background: #fff;
-    border: 1px solid #0db9f0!important;
+    //border: 1px solid #0db9f0!important;
     color: #0db9f0;
     outline: none;
   }
@@ -75,4 +100,50 @@ button.btn {
 .missed button.btn {
   background-color: $brand-danger;
   color:#f1f1f1;
+}
+
+.well {
+  background: transparent!important;
+  border: none!important;
+  box-shadow: none!important;
+}
+button.btn {
+  color:#fff!important;
+  padding: 0.5em!important;
+  color: #999999;
+  background: transparent;
+  font-weight: 700;
+  margin: 0.2em;
+  border-width: 1px;
+  border-radius: 50px!important;
+  font-size: 1em;
+}
+button.btn .text-info {
+  color: #797772!important;
+  font-weight: 700;
+  font-size: 1em;
+}
+td, tr, th, em {
+  color:#fff
+}
+th {
+  text-transform: uppercase;
+}
+.h6 {
+  background: transparent;
+  padding-right: 2em;
+}
+tr {
+  td:first-of-type em {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1em;
+  }
+}
+
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+  cursor: not-allowed;
+  opacity: 1;
+  filter: alpha(opacity=65);
+  box-shadow: none;
+  background-color: #CCC;
 }
