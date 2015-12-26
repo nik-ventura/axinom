@@ -28,7 +28,8 @@
 }
 .time-log {
   h2 {
-    color: #f2f2f2;
+    color: #fff;
+    text-transform: uppercase;
   }
 }
 .timelog-legend {
@@ -44,10 +45,10 @@
     margin-bottom: -8px;
     margin-right: 1em;
     &.legend-logged {
-      background: #a7a8ab;
+      background: $color-olive;
     }
     &.legend-missing {
-      background:$color-olive ;
+      background:#a7a8ab;
     }
   }
   list-style: none;
@@ -145,5 +146,8 @@ tr {
   opacity: 1;
   filter: alpha(opacity=65);
   box-shadow: none;
-  background-color: #CCC;
+  background-color: #a7a8ab;
+}
+button.btn:hover {
+  color: #333!important;
 }

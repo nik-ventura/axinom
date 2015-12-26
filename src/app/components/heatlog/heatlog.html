@@ -1,5 +1,8 @@
 <div class="container">
+
   <div class="row heat-log-item">
+
+    <!--Date display-->
     <div class="col-md-12">
       <div class="today-date text-center">
         <span class="month">{{date | date:'MMM'}}</span>
@@ -11,9 +14,11 @@
         <p>working situation today?</p>
       </div>
     </div>
-    <div class="col-md-10 col-md-offset-1">
+
+    <!--Personal heat level-->
+    <div class="col-md-10 col-md-offset-1 col-sm-12" >
       <div class="heat-log box row">
-        <div class="btn-group col-md-12 text-center">
+        <div class="btn-group col-md-12 col-sm-12 text-center">
           <a class="heat-btn blue-level">
             Give me smthg to do
           </a>
@@ -27,15 +32,17 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4 heat-log-item heat-log-projects">
-      <div class="text-center">
-        <h1 class="project-header"><span>Units heat level</span></h1>
-        <p>WEEK {{date | date:'w'}}</p>
-      </div>
+
+  <!--Units heat level-->
+  <div class="row heat-log-item">
+    <div class="text-center project-header">
+      <h1><span>Units heat level</span></h1>
+      <p>WEEK {{date | date:'w'}}</p>
+    </div>
+    <div class="col-md-4 col-sm-4 col-md-offset-4 heat-log-projects">
       <div class="heat-log box row">
         <h1>Project managers</h1>
-        <div class="btn-group col-md-12 text-center">
+        <div class="btn-group col-md-12 col-sm-12 text-center">
           <a class="heat-btn blue-level">
           </a>
           <a class="heat-btn green-level">
@@ -44,9 +51,28 @@
           </a>
         </div>
       </div>
-
     </div>
+  </div>
 
+  <!--Projects heat level-->
+  <div class="row heat-log-item">
+    <div class="text-center project-header">
+      <h1><span>Projects heat level</span></h1>
+      <p>WEEK {{date | date:'w'}}</p>
+    </div>
+    <div class="col-md-4 col-sm-4 col-md-offset-4 heat-log-projects">
+      <div class="heat-log box row">
+        <h1>Project managers</h1>
+        <div class="btn-group col-md-12 col-sm-12 text-center">
+          <a class="heat-btn blue-level">
+          </a>
+          <a class="heat-btn green-level">
+          </a>
+          <a class="heat-btn red-level">
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 
 

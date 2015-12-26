@@ -144,14 +144,21 @@
     padding: 1em;
     margin: 0.5em;
     color:#fff;
+    .form-group {
+      margin-right: 1em;
+      label {
+        margin-right: 1em;
+      }
+    }
     .form-control {
       height: 36px;
       background-color: rgba(255, 255, 255, 0.58);
       border-radius: 50px;
       border: 2px solid #fff;
     }
-    button {
-      margin-top: 1.7em;
+    .btn {
+      padding: 0.6em 1.5em;
+      font-size: 0.9em;
     }
     .form-control.date-picker {
       height: 34px;

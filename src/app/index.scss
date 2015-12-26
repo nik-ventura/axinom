@@ -34,7 +34,7 @@ $font-light:300;
 @import "../assets/fonts/icons.css";
 
 .browsehappy {
-  margin: 0.2em 0;
+  margin: 0.2em 0 ;
   background: #ccc;
   color: #000;
   padding: 0.2em 0;
@@ -59,19 +59,7 @@ body {
   padding: 0;
 }
 
-.heat-log-item {
-  h1 {
-    text-transform: uppercase;
-    color: #fff;
-    font-weight: bold;
-    font-size: 1.5em;
-    margin: 0;
-  }
-  p {
-    color: #EEEEEE;
-    font-size: 1.2em;
-  }
-}
+
 .today-date {
   font-size: 2em;
   margin: 1em 0;
@@ -146,89 +134,7 @@ body {
     width: auto;
     padding: 2em;
   }
-  .project-header span:before,
-  .project-header span:after {
-    content: "";
-    position: absolute;
-    border-top: 1px solid white;
-    top: 5px;
-    width: 300px;
-  }
-  .project-header span:before {
-    right: 85%;
-    margin-right: 0;
-  }
-  .project-header span:after {
-    left: 85%;
-    margin-left: 0;
-  }
-}
 
-//  Heat Buttons
-.heat-log-item {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  -webkit-animation-name: fadeInUp;
-  animation-name: fadeInUp;
-
-}
-@for $i from 1 to 10 {
-  .heat-log-item:nth-child(#{$i}) { animation-delay: $i * 0.25s; }
-}
-.heat-btn {
-  position: relative;
-  display: inline-block;
-  padding: 0 1em 0 0;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  -webkit-animation-name: zoomIn;
-  animation-name: zoomIn;
-  width: 25%;
-  margin: 0 1% 0 0;
-  padding: 1.2em 1.5em 1.2em 1.5em;
-  border-radius: 100px;
-  display: inline-block;
-  text-transform: uppercase;
-  color: #fff;
-  font-weight: 300;
-  font-size: 1em;
-  text-align: left;
-  line-height: 1.1em;
-  box-shadow: 2px 2px 25px -10px #000;
-  text-align: center;
-  &.blue-level {
-      background: $brand-primary ;
-    &.selected {
-        background:$brand-primary url("../assets/images/check-mark.png") no-repeat top right;
-    }
-  }
-  &.green-level {
-      background: $brand-success;
-    &.selected {
-        background:$brand-success url("../assets/images/check-mark.png") no-repeat top right;
-    }
-  }
-  &.red-level {
-      background: $brand-danger;
-    &.selected {
-        background:$brand-danger url("../assets/images/check-mark.png") no-repeat top right;
-    }
-  }
-  &:hover, &:active, &:focus {
-    text-decoration: none;
-    color: #fff;
-  }
-  &:active {
-    top:1px;
-    outline: none;
-  }
-}
-@for $i from 1 to 10 {
-  .heat-btn:nth-child(#{$i}) { animation-delay: $i * 0.25s; }
 }
 
 .form-control {
@@ -316,22 +222,29 @@ rzslider span.rz-bar {
   color: #64615B;
   border-color: #fff;
   &.btn-filter {
-    margin-top: 25px;
+    //margin-top: 25px;
     margin-left: -33px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     padding: 0.92em 1em;
+    &:hover {
+      background: #5C5B58;
+    }
 
   }
   &:hover, &:active, &:focus {
-    background: #fff;
-    color: #64615B;
+    background: rgba(255, 255, 255, 0.4);
+    color: #fff;
 
   }
 }
 .btn-secondary {
   border-color: #fff;
   color: #fff;
+  &:hover, &:active, &:focus {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.4);
+  }
 }
 
 
@@ -387,7 +300,7 @@ rzslider span.rz-bar {
       font-family: sans-serif ;
       color: #666;
         &.search-choice {
-          line-height: 1.7em;
+          line-height: 1.6em;
           font-family: sans-serif;
           color: #666;
           padding: 3px 26px 3px 13px;

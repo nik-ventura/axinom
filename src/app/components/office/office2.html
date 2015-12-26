@@ -52,13 +52,13 @@
           <li>31</li>
         </ul>
         <div class="row log-controls">
-          <div class="col-md-6">
-            <form class="office-form">
-              <div class="form-group col-sm-4">
-                <label>Time range</label>
+          <div class="col-md-12">
+            <form class="form-inline office-form">
+              <div class="form-group">
+                <input date-range-picker class="form-control date-picker" type="text" ng-model="date" min="'2015-11-12'" max="'2016-08-25'" placeholder="Pick time range"/>
                 <input date-range-picker class="form-control date-picker" type="text" ng-model="date" min="'2015-11-12'" max="'2016-08-25'" placeholder="Pick time range"/>
               </div>
-              <div class="form-group col-sm-4">
+              <div class="form-group">
                 <label>Mark as</label>
                 <select class="form-control" id="log_type">
                   <option value="holiday">Holidays</option>
@@ -67,8 +67,8 @@
                   <option value="pregnancy">Pregnancy</option>
                 </select>
               </div>
-              <button type="submit" class="btn btn-primary confirm-days" >Confirm</button>
-              <button type="submit" class="btn btn-default close-controls" ng-click="vm.dateRange = false">Close</button>
+              <a  class="btn btn-primary confirm-days" >Confirm</a>
+              <a  class="btn btn-secondary close-controls" ng-click="vm.dateRange = false">Close</a>
             </form>
           </div>
         </div>
