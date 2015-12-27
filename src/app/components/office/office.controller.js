@@ -8,6 +8,8 @@
   /** @ngInject */
   function OfficeController( toastr, $scope) {
     var vm = this;
+
+
       vm.dateRange = false;
       $scope.selectDate = false;
       $scope.sickDateSet = false;
@@ -44,18 +46,21 @@
       };
 
       // Disable weekend selection
-      $scope.disabled = function(date, mode) {
-          return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
-      };
+//      $scope.disabled = function(date, mode) {
+//          return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
+//      };
 
-      $scope.toggleMin = function() {
-          $scope.minDate = $scope.minDate ? null : new Date();
-      };
-      $scope.toggleMin();
-      $scope.maxDate = new Date(2020, 5, 22);
+//      $scope.toggleMin = function() {
+//          $scope.minDate = $scope.minDate ? null : new Date();
+//      };
+//      $scope.toggleMin();
+//      $scope.maxDate = new Date(2020, 5, 22);
 
       $scope.open = function($event) {
           $scope.status.opened = true;
+      };
+      $scope.open2 = function($event) {
+          $scope.status2.opened = true;
       };
 
       $scope.setDate = function(year, month, day) {

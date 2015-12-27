@@ -54,9 +54,11 @@
         <div class="row log-controls">
           <div class="col-md-12">
             <form class="form-inline office-form">
-              <div class="form-group">
-                <input date-range-picker class="form-control date-picker" type="text" ng-model="date" min="'2015-11-12'" max="'2016-08-25'" placeholder="Pick time range"/>
-                <input date-range-picker class="form-control date-picker" type="text" ng-model="date" min="'2015-11-12'" max="'2016-08-25'" placeholder="Pick time range"/>
+              <div class="form-group ">
+                  <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-click="open($event)" ng-model="" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" placeholder="From"/>
+              </div>
+              <div class="form-group ">
+                  <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-click="open2($event)" ng-model="" is-open="status2.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" placeholder="To"/>
               </div>
               <div class="form-group">
                 <label>Mark as</label>

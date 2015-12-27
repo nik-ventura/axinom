@@ -90,6 +90,10 @@
 .color-legend {
   -webkit-padding-start: 0;
   margin: 1em 0;
+  ul {
+    -webkit-padding-start: 0px;
+    -moz-padding-start: 0px;
+  }
   li {
     list-style: none;
     margin-bottom: 1em;
@@ -144,6 +148,19 @@
     padding: 1em;
     margin: 0.5em;
     color:#fff;
+    .dropdown-menu {
+      padding-right: 25px;
+      background: #333;
+      .btn-group  {
+        .btn, .btn.btn-sm.btn-success {
+          width: auto;
+          padding: 0.3em 1.2em!important;
+          &.btn-info {
+            color: #333!important;
+          }
+        }
+      }
+    }
     .form-group {
       margin-right: 1em;
       label {
@@ -164,4 +181,7 @@
       height: 34px;
     }
   }
+}
+table {
+  outline: none;
 }
