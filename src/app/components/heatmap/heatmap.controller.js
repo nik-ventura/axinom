@@ -6,9 +6,15 @@
         .controller('HeatmapController', HeatmapController);
 
     /** @ngInject */
-    function HeatmapController($window, $scope) {
+    function HeatmapController($window, $scope, $rootScope) {
         var vm = this;
-
+        $rootScope.hideControls = false;
+        vm.fullScreen = function() {
+            $rootScope.hideControls = true;
+        };
+        vm.exitFullScreen = function() {
+            $rootScope.hideControls = false;
+        };
         // Heatmap playback slider
         $scope.play = false;
         $scope.playToggle = function() {
@@ -29,9 +35,13 @@
             left: 0,
             right: 0
         };
+
+        var navHeight = $('.navbar-static-top').height();
+        var heatmapControlsHeight = $('.heatmap-controls').height();
         var transitioning;
         var _width = $(window).width() - 0;
-        var _height = $(window).height();
+        var _height = $(window).height() - (navHeight + heatmapControlsHeight);
+        var _fullHeight = $(window).height();
         var _chartWidth = _width - (_margin.left + _margin.right);
         var _chartHeight = _height - (_margin.top + _margin.bottom);
         var _sizeByMetric = "size";

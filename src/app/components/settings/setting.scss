@@ -14,7 +14,6 @@
     span {
       color: #fff;
       font-weight: $font-bold;
-      border-bottom: 2px solid;
       font-size: 1.2em;
     }
   }
@@ -71,7 +70,10 @@
   animation-name: fadeInLeft;
 }
 .list-group-item.node-treeview-expandible.node-selected {
-  background: $brand-primary!important;
+  background-color: rgba(255, 255, 255, 0.25)!important;
+}
+.list-group-item.node-treeview-expandible.search-result  {
+  color:$color-olive!important;
 }
 .list-group-item {
   position: relative;

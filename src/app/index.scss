@@ -149,6 +149,24 @@ body {
   }
 }
 
+input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color:    #909;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color:    #909;
+  opacity:  1;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color:    #909;
+  opacity:  1;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color:    #909;
+}
+input:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+  color:    #909;
+}
+
 // Slider
 .project-log {
   rzslider {
@@ -238,6 +256,11 @@ rzslider span.rz-bar {
 
   }
 }
+.btn-success:focus, .btn-success.focus, .btn-success:hover, .btn-success:active {
+  background: none;
+  color:#fff;
+  border-color: #fff;
+}
 .btn-secondary {
   border-color: #fff;
   color: #fff;
@@ -321,7 +344,7 @@ rzslider span.rz-bar {
 }
 .chosen-container-multi .chosen-choices {
   height: 36px;
-  background-color: rgba(255, 255, 255, 0.58);
+  background: rgba(255, 255, 255, 0.58);
   border-radius: 50px;
   border: 2px solid #fff;
 }

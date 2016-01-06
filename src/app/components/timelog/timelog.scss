@@ -1,6 +1,6 @@
-@for $i from 1 to 10 {
-  .project-log:nth-child(#{$i}) { animation-delay: $i * 0.10s; }
-}
+//@for $i from 1 to 10 {
+//  .project-log:nth-child(#{$i}) { animation-delay: $i * 0.10s; }
+//}
 .project-log {
   padding: 0.2em 1.2em;
   margin: 0 1em;
@@ -58,7 +58,21 @@ table {
   margin-left: 10px!important;
 }
 td, th {
-  padding: 0.2em;
+  padding: 0.1em 0.3em;
+}
+table {
+  tr:first-of-type {
+    td:first-of-type em {
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+    }
+  }
+  tr:last-of-type {
+    td:first-of-type em {
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+  }
 }
 .well {
   background: #fff;
@@ -109,15 +123,15 @@ button.btn {
   box-shadow: none!important;
 }
 button.btn {
-  color:#fff!important;
-  padding: 0.5em!important;
+  color: #fff !important;
+  padding: 0.2em !important;
   color: #999999;
   background: transparent;
-  font-weight: 700;
+  font-weight: 300;
   margin: 0.2em;
   border-width: 1px;
-  border-radius: 50px!important;
-  font-size: 1em;
+  border-radius: 50px !important;
+  font-size: 1.3em;
 }
 button.btn .text-info {
   color: #797772!important;
@@ -137,7 +151,9 @@ th {
 tr {
   td:first-of-type em {
     background: rgba(0, 0, 0, 0.2);
-    padding: 1em;
+    padding: 1em 0;
+    width: 32px;
+    display: block;
   }
 }
 

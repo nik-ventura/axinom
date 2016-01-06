@@ -1,6 +1,6 @@
 
 <div class="container-fluid">
-  <div class="row heatmap-controls animated fadeInDown no-margin">
+  <div ng-hide="$root.hideControls" class="row heatmap-controls animated fadeInDown no-margin">
     <div class="col-sm-3 bottom10">
       <h1>Filter by project:</h1>
       <select chosen multiple id="states" data-placeholder="Filter by project" class="top10">
@@ -52,7 +52,12 @@
               <input type="radio" name="Unit" id="Project" autocomplete="off"> Project
             </label>
           </div>
+        <div class="full-screen">
+          <a href="" ng-click="vm.fullScreen()" ng-hide="$root.hideControls">Full screen</a>
+          <a href="" ng-click="vm.exitFullScreen()" ng-hide="!$root.hideControls">Show controls</a>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
