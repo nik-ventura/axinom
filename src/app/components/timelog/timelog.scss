@@ -6,13 +6,6 @@
   margin: 0 1em;
   position: relative;
   z-index: 1;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  -webkit-animation-name: fadeInUp;
-  animation-name: fadeInUp;
-  transition: all 200ms ease-in-out;
   &:hover {
     background: rgba(0,0,0,0.2);
   }
@@ -45,10 +38,10 @@
     margin-bottom: -8px;
     margin-right: 1em;
     &.legend-logged {
-      background: $color-olive;
+      background: url("../assets/images/logged-time.png") no-repeat;
     }
     &.legend-missing {
-      background:#a7a8ab;
+      background: rgba(167, 168, 171, 0.90);
     }
   }
   list-style: none;
@@ -109,7 +102,7 @@ button.btn {
   }
 }
 .logged button.btn {
-  background-color: limegreen;
+  background: url("../assets/images/logged-time.png") no-repeat;
   color:#f1f1f1;
 }
 .missed button.btn {
@@ -123,7 +116,7 @@ button.btn {
   box-shadow: none!important;
 }
 button.btn {
-  color: #fff !important;
+  color: #fff;
   padding: 0.2em !important;
   color: #999999;
   background: transparent;
@@ -134,9 +127,14 @@ button.btn {
   font-size: 1.3em;
 }
 button.btn .text-info {
-  color: #797772!important;
   font-weight: 700;
   font-size: 1em;
+}
+tr button.btn {
+  color: #fff;
+  &:hover {
+    color:#fff;
+  }
 }
 td, tr, th, em {
   color:#fff
@@ -164,6 +162,11 @@ tr {
   box-shadow: none;
   background-color: #a7a8ab;
 }
-button.btn:hover {
-  color: #333!important;
+
+
+button.btn .text-info{
+  color: $color-olive;
+}
+.btn.btn-default.btn-sm.btn-info.active  .text-info, .btn.btn-default.btn-sm.btn-info.active {
+  color:#333;
 }
