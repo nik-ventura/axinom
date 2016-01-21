@@ -41,7 +41,7 @@
       background: url("../assets/images/logged-time.png") no-repeat;
     }
     &.legend-missing {
-      background: rgba(167, 168, 171, 0.90);
+      background: rgba(167, 168, 171, 0.8);
     }
   }
   list-style: none;
@@ -71,7 +71,32 @@ table {
   background: #fff;
   border: 1px solid #ccc;
   box-shadow: 2px 2px 25px -10px #000;
+  &.well-sm {
+    table {
+      tr:first-of-type {
+        th {
+          button {
+            strong {
+              margin-right: -24px
+            }
+          }
+        }
+        th:first-of-type {
+          button i {
+            margin-right: -129px;
+          }
+        }
+        th:last-of-type {
+          button i {
+            margin-left: -26px;
+          }
+        }
+      }
+
+    }
+  }
 }
+
 
 button.btn {
   padding: 0.6em 0.7em;
@@ -101,6 +126,21 @@ button.btn {
     font-size: 1.6em;
   }
 }
+.btn-default:focus, .btn-default.focus {
+  outline: none;
+  background: transparent;
+}
+.btn-default:active:hover, .btn-default:active:focus, .btn-default:active.focus, .btn-default.active:hover, .btn-default.active:focus, .btn-default.active.focus, .open > .btn-default.dropdown-toggle:hover, .open > .btn-default.dropdown-toggle:focus, .open > .btn-default.dropdown-toggle.focus {
+  background: transparent;
+  color: #fff;
+  box-shadow: none;
+  outline: none;
+}
+.btn-default.disabled.focus, .btn-default.disabled:focus, .btn-default.disabled:hover, .btn-default[disabled].focus, .btn-default[disabled]:focus, .btn-default[disabled]:hover, fieldset[disabled] .btn-default.focus, fieldset[disabled] .btn-default:focus, fieldset[disabled] .btn-default:hover {
+  background: initial;
+  border-color: transparent;
+}
+
 .logged button.btn {
   background: url("../assets/images/logged-time.png") no-repeat;
   color:#f1f1f1;
@@ -160,13 +200,17 @@ tr {
   opacity: 1;
   filter: alpha(opacity=65);
   box-shadow: none;
-  background-color: #a7a8ab;
+  background-color: rgba(167, 168, 171, 0.8);
 }
-
 
 button.btn .text-info{
   color: $color-olive;
 }
 .btn.btn-default.btn-sm.btn-info.active  .text-info, .btn.btn-default.btn-sm.btn-info.active {
   color:#333;
+}
+
+.text-muted {
+  color: #fff;
+  opacity: 0.4;
 }
